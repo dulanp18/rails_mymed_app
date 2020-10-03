@@ -4,17 +4,19 @@ class PatientsController < ApplicationController
 
   def new
     @patient = Patient.new
+    authorize @patient
   end
 
   def create
     @patient = Patient.new(patient_params)
     @user = current_user
     @patient.user = @user
-    @patient.save
-
-    raise
-    redirect_to consultations_path
-  end
+    authorize @patient
+    if @patient.save
+      redirect_to consultations_path   
+    else
+       render :new
+    end
 
 
   private
