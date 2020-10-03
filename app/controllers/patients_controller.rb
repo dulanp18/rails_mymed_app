@@ -1,10 +1,12 @@
 class PatientsController < ApplicationController
 
+
   def index
   @patients = if params[:query].present?
                   Patient.search_by_email(params[:query])
                 end
   end
+
 
   def new
     @patient = Patient.new
@@ -17,12 +19,10 @@ class PatientsController < ApplicationController
     @patient.user = @user
     authorize @patient
     if @patient.save
-    raise
-    redirect_to prescriptions_path
-  else
-    render :new
-
-  end
+      redirect_to consultations_path
+    else
+       render :new
+    end
 
 
   private
