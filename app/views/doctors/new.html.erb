@@ -1,6 +1,7 @@
-<%= simple_form_for @doctor, new_doctor_path do |f| %>
+<%= simple_form_for @doctor do |f| %>
 <%= f.input :medical_licence_number %>
-<%= f.input :country_of_doctor_licence %>
+<%= f.input :country_of_doctor_licence, as: :string %>
 <%= f.input :clinic_of_practice %>
 <%= f.input :address_of_clinic_string %>
+<%= f.button :submit %>
 <% end %>

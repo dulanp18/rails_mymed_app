@@ -25,9 +25,9 @@ protected
 
   def after_sign_in_path_for(resource)
     if current_user.user_type == 'doctor'
-     redirect_to new_doctor_path
+      new_doctor_path
     elsif current_user.user_type == 'patient'
-      redirect_to new_patient_path
+      new_patient_path
     end
   end
 end
