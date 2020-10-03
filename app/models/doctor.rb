@@ -5,17 +5,6 @@ class Doctor < ApplicationRecord
 
   accepts_nested_attributes_for :user
 
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
-
-  def edit
-  end
 
 
 
