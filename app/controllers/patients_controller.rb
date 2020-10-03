@@ -13,10 +13,11 @@ class PatientsController < ApplicationController
     @patient.user = @user
     authorize @patient
     if @patient.save
-      redirect_to consultations_path   
+      redirect_to consultations_path
     else
        render :new
     end
+  end
 
 
   private
