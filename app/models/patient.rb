@@ -5,4 +5,10 @@ class Patient < ApplicationRecord
   has_many :orders, through: :consultations
 
   accepts_nested_attributes_for :user
+
+
+
 end
+
+
+
