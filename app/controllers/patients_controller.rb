@@ -1,5 +1,7 @@
 class PatientsController < ApplicationController
 
+
+
   def new
     @patient = Patient.new
   end
@@ -11,7 +13,7 @@ class PatientsController < ApplicationController
     @patient.save
 
     raise
-    redirect_to prescriptions_path
+    redirect_to consultations_path
   end
 
 
