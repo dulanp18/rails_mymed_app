@@ -9,8 +9,7 @@ def create
   @user = current_user
   @doctor.user = @user
   if @doctor.save
-    redirect_to doctor_path
-    raise
+    redirect_to doctor_path(@doctor)
   else
     render :new
   end
