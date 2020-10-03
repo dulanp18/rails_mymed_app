@@ -1,5 +1,11 @@
 class PatientsController < ApplicationController
 
+  def index
+  @patients = if params[:query].present?
+                  Patient.search_by_email(params[:query])
+                end
+  end
+
   def new
     @patient = Patient.new
     authorize @patient
