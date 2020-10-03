@@ -1,5 +1,7 @@
 class PatientsController < ApplicationController
 
+
+
   def new
     @patient = Patient.new
     authorize @patient
@@ -11,12 +13,10 @@ class PatientsController < ApplicationController
     @patient.user = @user
     authorize @patient
     if @patient.save
-    raise
-    redirect_to prescriptions_path
-  else
-    render :new
-
-  end
+      redirect_to consultations_path   
+    else
+       render :new
+    end
 
 
   private
