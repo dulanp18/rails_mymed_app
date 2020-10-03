@@ -1,8 +1,23 @@
 class DoctorsController < ApplicationController
 
+def new
+  @doctor = Doctor.new
+end
 
+def create
+  @doctor = Doctor.new(doctor_params)
+  @user = current_user
+  @doctor.user = @user
+  if doctor.save
+    raise
+    redirect_to doctor_path
+  else
+    render :new
+end
 
-
+def show
+  @doctor = Doctor.find(params[:id])
+end
 
 
   private
