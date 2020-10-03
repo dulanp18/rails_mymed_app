@@ -1,10 +1,24 @@
 class PatientsController < ApplicationController
 
+  def new
+    @patient = Patient.new
+  end
+
+  def create
+    @patient = Patient.new(patient_params)
+    @user = current_user
+    @patient.user = @user
+    @patient.save
+
+    raise
+    redirect_to prescriptions_path
+  end
+
 
   private
 
   def patient_params
-      params.require(:patient).permit(:current_city_id, :current_country_id, :google_plus_page_url, :linkedin_page_url, :facebook_page_url, :skype_id, :user_attributes => [:first_name, :last_name])
+      params.require(:patient).permit(:home_address, :allergies)
   end
 
 end
