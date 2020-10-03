@@ -20,4 +20,14 @@ private
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
+protected
+
+  def after_sign_in_path_for(resource)
+    if current_user.user_type == 'doctor'
+      doctor_new_path
+    elsif current_user.user_type == 'patient'
+      patient_new_path
+    end
+  end
 end
