@@ -1,6 +1,13 @@
 class PatientsController < ApplicationController
 
 
+  def index
+    all_patients = policy_scope(Patient)
+  if params[:query].present?
+     @patient = User.where(email: params[:query].downcase, user_type: 'patient')
+  end
+  end
+
 
   def new
     @patient = Patient.new
@@ -25,5 +32,4 @@ class PatientsController < ApplicationController
   def patient_params
       params.require(:patient).permit(:home_address, :allergies)
   end
-
 end

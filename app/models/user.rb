@@ -7,4 +7,15 @@ class User < ApplicationRecord
   has_one :doctor
   has_one :patient
 
+  def downcase_email
+    email.downcase
+  end
+
+  def titlecase_first_name
+    first_name.titlecase
+  end
+
+  def titlecase_last_name
+    last_name.titlecase
+  end
 end
