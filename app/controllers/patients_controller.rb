@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
   def index
     all_patients = policy_scope(Patient)
   if params[:query].present?
-     @patients = all_patients.search_by_email(params[:query])
+     @patient = User.where(email: params[:query].downcase, user_type: 'patient')
   end
   end
 

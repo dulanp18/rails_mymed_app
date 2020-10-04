@@ -1,3 +1,5 @@
+<h1>Search by patient email</h1>
+
   <div class="search">
     <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :query, params[:query], placeholder: "Search for patient", class: 'search-bar' %>
@@ -6,6 +8,11 @@
   </div>
 
 
-<% if @patients %>
-<h3><%= @patients.user.first_name %></h3>
+<% if @patient %>
+  <% @patient.each do |patient| %>
+  <h3><%= patient.first_name %></h3>
+  <h3><%= patient.last_name %></h3>
+  <h3><%= patient.email %></h3>
+  <h3><%= patient.contact_number %></h3>
+  <% end %>
 <% end %>
