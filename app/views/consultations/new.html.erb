@@ -1,6 +1,10 @@
+<div class="container">
 
-<% form_tag(consultations_path, :method => "post") do %>
-  <%= label_tag(:q, "Choose Your Patient By Email:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Create Consultation") %>
+<%= form_for @consultation, url: consultations_path do |f| %>
+  <%= f.label(:patient, "Choose Your Patient By Email:") %>
+  <%= f.text_field :patient %>
+  <%= f.submit("Create Consultation") %>
 <% end %>
+
+</div>
+
