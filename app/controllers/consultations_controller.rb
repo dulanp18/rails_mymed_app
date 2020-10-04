@@ -10,18 +10,25 @@ class ConsultationsController < ApplicationController
   end
 
   def new
-
+    @consultation = Consultation.new()
   end
 
   def create
     @consultation = Consultation.new()
-    @doctor = current_user
-    @patient = params[:patient]
+    @doctor = current_user.doctor
+    patient_user = User.where(email: params[:consultation][:patient])[0]
+    @patient = patient_user.patient
     @consultation.doctor = @doctor
     @consultation.patient = @patient
     @consultation.save
 
+
     redirect_to consultation_path(@consultation)
+  end
+
+  def show
+    @consultation = Consultation.find(params[:id])
+    @prescription = Prescription.new()
   end
 
 
