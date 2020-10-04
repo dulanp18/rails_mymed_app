@@ -1,4 +1,12 @@
+
+<div class='container'>
 <h1><%= @doctor.user.first_name %> <%= @doctor.user.last_name %></h1>
 <h3><%= @doctor.clinic_of_practice %></h3>
 <h3><%= @doctor.address_of_clinic_string %></h3>
 <h3><%= @doctor.medical_licence_number %></h3>
+
+
+<% if current_user.user_type == 'doctor' %>
+  <%= link_to "Create A Consultation", new_consultation_path %>
+<% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_102817) do
+ActiveRecord::Schema.define(version: 2020_10_04_001935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_102817) do
     t.decimal "number_of_days", null: false
     t.string "comment", null: false
     t.bigint "consultation_id", null: false
-    t.bigint "order_id", null: false
+    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
@@ -98,5 +98,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_102817) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "consultations", "doctors"
+  add_foreign_key "consultations", "patients"
   add_foreign_key "orders", "consultations"
 end

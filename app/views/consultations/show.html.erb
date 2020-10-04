@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <h1> Consultation with <%= @consultation.patient.user.first_name  %> <%= @consultation.patient.user.last_name  %></h1>
+  </div>
+  <div>
+    <% if @consultation.prescriptions.length == 0 %>
+      <h2>No medicine prescribed yet.</h2>
+    <% else %>
+      <% @consultation.prescriptions.each do |prescription|  %>
+        <div>
+          <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.dose_per_serving  %>, <%= prescription.doses_per_day  %> per day, for <%= prescription.number_of_days  %> days. <%= prescription.comment  %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+    <%= simple_form_for [@consultation, @prescription] do |f| %>
+
+      <%= simple_fields_for :other do |o| %>
+        <%= o.input :name, label: 'Name' %>
+        <%= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
+      <% end %>
+
+      <%= f.input :dose_per_serving %>
+      <%= f.input :doses_per_day %>
+      <%= f.input :number_of_days %>
+      <%= f.input :comment %>
+      <%= f.button :submit, "Prescribe" %>
+    <% end %>
+  </div>
+</div>
