@@ -2,9 +2,10 @@ class PatientsController < ApplicationController
 
 
   def index
-  @patients = if params[:query].present?
-                  Patient.search_by_email(params[:query])
-                end
+    all_patients = policy_scope(Patient)
+  if params[:query].present?
+     @patients = all_patients.search_by_email(params[:query])
+  end
   end
 
 
@@ -23,6 +24,7 @@ class PatientsController < ApplicationController
     else
        render :new
     end
+  end
 
 
   private
@@ -30,5 +32,4 @@ class PatientsController < ApplicationController
   def patient_params
       params.require(:patient).permit(:home_address, :allergies)
   end
-
 end

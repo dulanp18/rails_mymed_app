@@ -1,5 +1,5 @@
   <div class="search">
-    <%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+    <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :query, params[:query], placeholder: "Search for patient", class: 'search-bar' %>
     <%= submit_tag "Search", class: 'btn btn-info ml-2 p-2 rounded-lg' %>
     <% end %>
