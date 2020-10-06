@@ -1,4 +1,31 @@
+<div class=" container">
 
 <% if current_user.user_type == 'doctor' %>
+  <div class="btn btn-info">
   <%= link_to "Create A Consultation", "/patients/index" %>
+  </div>
+
+  <% @consultations.each do |consultation| %>
+  <div>
+    <p> Consultation With: <strong><%= consultation.patient.user.first_name + " " + consultation.patient.user.last_name  %></strong></p>
+    <div>This consultation has <%= consultation.prescriptions.length %> prescriptions</div>
+    <p> It was created at <%= consultation.created_at %> and last updated at <%= consultation.updated_at %> </p>
+    <%= link_to "View Consultation", consultation_path(consultation)   %>
+  </div>
+  <% end %>
 <% end %>
+
+<% if current_user.user_type == 'patient' %>
+
+  <% @consultations.each do |consultation| %>
+  <div>
+    <p> Consulted By: <strong>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></strong> </p>
+    <div>This consultation has <%= consultation.prescriptions.length %> prescriptions</div>
+    <p> It was created at <%= consultation.created_at %> and last updated at <%= consultation.updated_at %> </p>
+    <%= link_to "View Consultation", consultation_path(consultation)   %>
+  </div>
+  <% end %>
+<% end %>
+
+
+</div>

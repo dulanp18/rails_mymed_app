@@ -5,6 +5,7 @@ class ConsultationPolicy < ApplicationPolicy
     end
   end
 
+
   def new?
     user.user_type == "doctor"
   end
