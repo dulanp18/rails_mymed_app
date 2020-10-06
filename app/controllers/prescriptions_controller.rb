@@ -7,7 +7,7 @@ class PrescriptionsController < ApplicationController
     @prescription.medicine = @medicine
     @prescription.consultation = @consultation
     authorize @prescription
-    @prescription.save()
+    @prescription.save
 
     redirect_to consultation_path(@consultation)
   end
