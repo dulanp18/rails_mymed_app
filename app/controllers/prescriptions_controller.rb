@@ -12,6 +12,12 @@ class PrescriptionsController < ApplicationController
     redirect_to consultation_path(@consultation)
   end
 
+  def show
+    @prescription = Prescription.find(params[:id])
+    medicine = Medicine.find(params[:medicine_id])
+    @prescription.medicine = medicine
+    authorize @prescription
+  end
 
   private
 
