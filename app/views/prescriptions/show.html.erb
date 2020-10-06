@@ -1,0 +1,8 @@
+<% @prescription.each do |prescription| %>
+<h1><%= prescription.medicine.name %></h1>
+<h3><%= prescription.medicine.strength_of_medicine %></h3>
+<h3><%= prescription.amount_per_serving %></h3>
+<h3><%= prescription.servings_per_day %></h3>
+<h3><%= prescription.number_of_days %></h3>
+<h4><%= prescription.comment %></h4>
+<% end %>
