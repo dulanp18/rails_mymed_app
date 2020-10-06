@@ -5,6 +5,10 @@ class PrescriptionPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
   def create?
     user.user_type == "doctor"
   end
