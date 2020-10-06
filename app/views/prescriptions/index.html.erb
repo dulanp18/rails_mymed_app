@@ -1,0 +1,17 @@
+<div class=" container">
+
+<% if current_user.user_type == 'patient' %>
+
+  <% @prescriptions.each do |prescription| %>
+  <div>
+    <p> Prescribed: <strong><%= prescription.medicine.name  %></strong></p>
+    <div>This was prescribed by <%= prescription.consultation.doctor.user.first_name %> <%= prescription.consultation.doctor.user.last_name %></div>
+    <p> It was created at <%= prescription.created_at %> and last updated at <%= prescription.updated_at %> </p>
+    <%= link_to "View Prescription", prescription_path(prescription)   %>
+  </div>
+  <% end %>
+<% end %>
+
+
+
+</div>

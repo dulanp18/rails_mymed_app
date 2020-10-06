@@ -1,5 +1,22 @@
 class PrescriptionsController < ApplicationController
 
+  def index
+    all_prescriptions = policy_scope(Prescription)
+    @user = current_user
+    if @user.user_type == 'patient'
+      @consultations = @user.patient.consultations
+    elsif @user.user_type == 'doctor'
+      @consultations = @user.doctor.consultations
+    end
+    @prescriptions = []
+    @consultations.each do |consultation|
+      consultation.prescriptions.each do |prescription|
+        @prescriptions << prescription
+      end
+    end
+
+  end
+
   def create
     @prescription = Prescription.new(prescription_params)
     @consultation = Consultation.find(params[:consultation_id])
@@ -11,6 +28,9 @@ class PrescriptionsController < ApplicationController
 
     redirect_to consultation_path(@consultation)
   end
+
+
+
 
 
   private
