@@ -4,4 +4,8 @@ class PrescriptionPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    user.user_type == "doctor"
+  end
 end

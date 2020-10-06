@@ -11,6 +11,7 @@ class ConsultationsController < ApplicationController
 
   def new
     @consultation = Consultation.new()
+    authorize @consultation
   end
 
   def create
@@ -20,6 +21,7 @@ class ConsultationsController < ApplicationController
     @patient = patient_user.patient
     @consultation.doctor = @doctor
     @consultation.patient = @patient
+    authorize @consultation
     @consultation.save
 
 
@@ -29,6 +31,7 @@ class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
     @prescription = Prescription.new()
+    authorize @consultation
   end
 
 
