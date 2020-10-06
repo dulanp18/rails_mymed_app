@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :prescriptions, only: [:create]
   end
 
+  resources :prescriptions, only: [:index,:show]
+
+
+
 
 end
