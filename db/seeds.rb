@@ -6,10 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Prescription.delete_all
+Consultation.delete_all
 Doctor.delete_all
 Patient.delete_all
 User.delete_all
 Medicine.delete_all
+
+
 
 puts "deleted previous"
 
@@ -29,6 +33,12 @@ imodium.save!
 
 neurofen = Medicine.new(name:"Neurofen", strength_of_medicine:"350mg", available_status:"Available",price: 86.5)
 neurofen.save!
+
+first_consultation = Consultation.new(doctor_id: first_doctor.doctor.id, patient_id: first_patient.patient.id)
+first_consultation.save!
+
+first_prescription = Prescription.new(amount_per_serving:"1",servings_per_day:"3",number_of_days:"4",comment:"take after meals",medicine_id: panadol.id, consultation_id: first_consultation.id)
+first_prescription.save!
 
 
 puts "seeded"
