@@ -1,9 +1,26 @@
 <div class="container">
 
-<%= form_for @consultation, url: consultations_path do |f| %>
-  <%= f.label(:patient, "Choose Your Patient By Email:") %>
-  <%= f.text_field :patient %>
-  <%= f.submit("Create Consultation") %>
+
+<h1>Search for Patient</h1>
+
+  <div class="search">
+    <%= form_tag(new_consultation_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Please enter email", class: 'search-bar' %>
+    <%= submit_tag "Search", class: 'btn btn-info ml-2 p-2 rounded-lg' %>
+    <% end %>
+  </div>
+
+
+<% if @patient %>
+  <% @patient.each do |patient| %>
+  <div>
+    <h3><%= patient.first_name %></h3>
+    <h3><%= patient.last_name %></h3>
+    <h3><%= patient.email %></h3>
+    <h3><%= patient.contact_number %></h3>
+    <%= link_to "Start Consultation For " + patient.first_name, consultations_path(:consultation => { :patient => patient.email }), method: :post %>
+    <% end %>
+  </div>
 <% end %>
 
 </div>

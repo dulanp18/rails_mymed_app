@@ -1,17 +1,22 @@
 class ConsultationsController < ApplicationController
 
   def index
+    all_consultations = policy_scope(Consultation)
     @user = current_user
     if @user.user_type == 'patient'
-      @consultations = Consultation.where(patient_id: @user.id)
+      @consultations = Consultation.where(patient_id: @user.patient.id)
     elsif @user.user_type == 'doctor'
-      @consultation = Consultation.where(doctor_id: @user.id)
+      @consultations = Consultation.where(doctor_id: @user.doctor.id)
     end
   end
 
   def new
     @consultation = Consultation.new()
     authorize @consultation
+
+    if params[:query].present?
+     @patient = User.where(email: params[:query].downcase, user_type: 'patient')
+    end
   end
 
   def create
