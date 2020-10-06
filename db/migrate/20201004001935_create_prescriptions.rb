@@ -11,7 +11,6 @@ class CreatePrescriptions < ActiveRecord::Migration[6.0]
       t.datetime "updated_at", precision: 6, null: false
       t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
       t.index ["medicine_id"], name: "index_prescriptions_on_medicine_id"
-      t.index ["order_id"], name: "index_prescriptions_on_order_id"
     end
   end
 end

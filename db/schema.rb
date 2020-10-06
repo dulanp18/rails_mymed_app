@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_04_001935) do
+ActiveRecord::Schema.define(version: 2020_10_06_083308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,20 @@ ActiveRecord::Schema.define(version: 2020_10_04_001935) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "prescription_id", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["prescription_id"], name: "index_order_items_on_prescription_id"
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.bigint "consultation_id", null: false
     t.decimal "total_cost", null: false
     t.string "delivery_status", default: "pending", null: false
     t.datetime "date_of_dispatch"
     t.datetime "date_of_delivery"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["consultation_id"], name: "index_orders_on_consultation_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -67,17 +72,15 @@ ActiveRecord::Schema.define(version: 2020_10_04_001935) do
 
   create_table "prescriptions", force: :cascade do |t|
     t.bigint "medicine_id", null: false
-    t.text "dose_per_serving", null: false
-    t.decimal "doses_per_day", null: false
+    t.text "amount_per_serving", null: false
+    t.decimal "servings_per_day", null: false
     t.decimal "number_of_days", null: false
     t.string "comment", null: false
     t.bigint "consultation_id", null: false
-    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
     t.index ["medicine_id"], name: "index_prescriptions_on_medicine_id"
-    t.index ["order_id"], name: "index_prescriptions_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,5 +103,6 @@ ActiveRecord::Schema.define(version: 2020_10_04_001935) do
 
   add_foreign_key "consultations", "doctors"
   add_foreign_key "consultations", "patients"
-  add_foreign_key "orders", "consultations"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "prescriptions"
 end
