@@ -23,11 +23,16 @@ private
 
 protected
 
-  def after_sign_in_path_for(resource)
+  def after_sign_up_path_for(resource)
     if current_user.user_type == 'doctor'
       new_doctor_path
     elsif current_user.user_type == 'patient'
       new_patient_path
+    end
+  end
+
+    def after_sign_in_path_for(resource)
+      consultations_path
     end
   end
 end
