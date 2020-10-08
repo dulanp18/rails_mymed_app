@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :prescriptions, only: [:index,:show]
 
+  resources :orders, only: [:show, :create]
 
 
 

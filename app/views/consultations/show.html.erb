@@ -9,6 +9,9 @@
       <% @consultation.prescriptions.each do |prescription|  %>
         <div>
           <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.amount_per_serving  %>, <%= prescription.servings_per_day  %> per day, for <%= prescription.number_of_days  %> days. <%= prescription.comment  %>
+              <p>Price: <%= humanized_money_with_symbol(prescription.medicine.price) %> Per pill</p>
+              <!-- <p>Price: <%= humanized_money_with_symbol(prescription.medicine.total) %> Total</p> -->
+
         </div>
       <% end %>
     <% end %>

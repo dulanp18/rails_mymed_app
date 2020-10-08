@@ -1,8 +1,14 @@
-<% @prescription.each do |prescription| %>
-<h1><%= prescription.medicine.name %></h1>
-<h3><%= prescription.medicine.strength_of_medicine %></h3>
-<h3><%= prescription.amount_per_serving %></h3>
-<h3><%= prescription.servings_per_day %></h3>
-<h3><%= prescription.number_of_days %></h3>
-<h4><%= prescription.comment %></h4>
-<% end %>
+
+<h1><%= @prescription.medicine.name %></h1>
+<h3><%= @prescription.medicine.strength_of_medicine %></h3>
+<h3><%= @prescription.amount_per_serving %></h3>
+<h3><%= @prescription.servings_per_day %></h3>
+<h3><%= @prescription.number_of_days %></h3>
+<h4><%= @prescription.comment %></h4>
+<p>Price: <%= humanized_money_with_symbol(@total) %> Total</p>
+
+<%#= form_tag orders_path do %>
+  <%#= hidden_field_tag 'medicine_id', @prescription.medicine.id%>
+  <%#= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<%# end %>
+
