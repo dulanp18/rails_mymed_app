@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :doctor
   has_one :patient
+  has_many :tasks
+
 
   def downcase_email
     email.downcase
