@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @calendars = get_calendars
+    raise
   end
 
   def create
