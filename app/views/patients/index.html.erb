@@ -1,11 +1,22 @@
-<h1>Search by patient email</h1>
+<!-- <div class="bgcontainer-mymeds" style="height:64vh; padding:64px;"> -->
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card m-4 h-100" style="background-color:#E8E8E8;min-height: 100vh;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+          <h3>Search by patient email</h3>
 
-  <div class="search">
-    <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Search for patient", class: 'search-bar' %>
-    <%= submit_tag "Search", class: 'btn btn-info ml-2 p-2 rounded-lg' %>
-    <% end %>
+          <div class="search">
+            <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search for patient", class: 'search-bar d-block m-4 p-2' %>
+            <%= submit_tag "Search", class: 'searchbutton-mymeds p-2' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
 
 <% if @patient %>
