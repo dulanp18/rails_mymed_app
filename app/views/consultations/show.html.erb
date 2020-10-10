@@ -8,11 +8,13 @@
     <% else %>
       <% @consultation.prescriptions.each do |prescription|  %>
         <div>
-          <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.amount_per_serving  %>, <%= prescription.servings_per_day  %> per day, for <%= prescription.number_of_days  %> days. <%= prescription.comment  %>
+          <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.amount_per_serving.to_i  %>, <%= prescription.servings_per_day.to_i  %> per day, for <%= prescription.number_of_days.to_i  %> days. <%= prescription.comment  %>
+              <p>Price: <%= humanized_money_with_symbol(prescription.price) %> </p>
         </div>
       <% end %>
     <% end %>
   </div>
+
   <% if current_user.user_type == 'patient' %>
     <div>
       <%= link_to "Back To All Consultations", consultations_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_083308) do
+ActiveRecord::Schema.define(version: 2020_10_10_035320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,25 +40,34 @@ ActiveRecord::Schema.define(version: 2020_10_06_083308) do
     t.string "name", null: false
     t.string "strength_of_medicine", null: false
     t.string "available_status", null: false
-    t.decimal "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.integer "number_of_servings"
   end
 
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "prescription_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["prescription_id"], name: "index_order_items_on_prescription_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal "total_cost", null: false
+    t.integer "total_cost_cents", default: 0, null: false
     t.string "delivery_status", default: "pending", null: false
+    t.string "checkout_session_id"
+    t.string "state"
     t.datetime "date_of_dispatch"
     t.datetime "date_of_delivery"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "consultation_id", null: false
+    t.index ["consultation_id"], name: "index_orders_on_consultation_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -79,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_06_083308) do
     t.bigint "consultation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
     t.index ["medicine_id"], name: "index_prescriptions_on_medicine_id"
   end
@@ -105,4 +115,6 @@ ActiveRecord::Schema.define(version: 2020_10_06_083308) do
   add_foreign_key "consultations", "patients"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "prescriptions"
+  add_foreign_key "orders", "consultations"
+  add_foreign_key "orders", "users"
 end

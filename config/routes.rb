@@ -9,10 +9,15 @@ Rails.application.routes.draw do
 
   resources :consultations do
     resources :prescriptions, only: [:create]
+
+    get '/cart', to: 'consultations#cart'
   end
 
   resources :prescriptions, only: [:index,:show]
 
+  resources :orders, only: [:show, :create]
+
+  resources :order_items
 
 
 

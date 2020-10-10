@@ -18,6 +18,8 @@ class ConsultationPolicy < ApplicationPolicy
     user.doctor == record.doctor || user.patient == record.patient
   end
 
-
+  def cart?
+    true
+  end
 
 end

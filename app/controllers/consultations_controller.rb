@@ -39,6 +39,12 @@ class ConsultationsController < ApplicationController
     authorize @consultation
   end
 
+  def cart
+    @consultation = Consultation.find(params[:consultation_id])
+    @prescription = Prescription.new()
+    authorize @consultation
+  end
+
 
 
 
