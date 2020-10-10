@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_101852) do
+ActiveRecord::Schema.define(version: 2020_10_10_035320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_10_08_101852) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "prescription_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["prescription_id"], name: "index_order_items_on_prescription_id"
   end
@@ -62,6 +64,10 @@ ActiveRecord::Schema.define(version: 2020_10_08_101852) do
     t.datetime "date_of_delivery"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "consultation_id", null: false
+    t.index ["consultation_id"], name: "index_orders_on_consultation_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -82,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_10_08_101852) do
     t.bigint "consultation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["consultation_id"], name: "index_prescriptions_on_consultation_id"
     t.index ["medicine_id"], name: "index_prescriptions_on_medicine_id"
   end
@@ -108,4 +115,6 @@ ActiveRecord::Schema.define(version: 2020_10_08_101852) do
   add_foreign_key "consultations", "patients"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "prescriptions"
+  add_foreign_key "orders", "consultations"
+  add_foreign_key "orders", "users"
 end

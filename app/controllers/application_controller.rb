@@ -21,7 +21,7 @@ private
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-protected
+private
 
   def after_sign_up_path_for(resource)
     if current_user.user_type == 'doctor'
@@ -34,4 +34,5 @@ protected
     def after_sign_in_path_for(resource)
       consultations_path
     end
+
 end

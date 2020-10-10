@@ -37,7 +37,9 @@ neurofen.save!
 first_consultation = Consultation.new(doctor_id: first_doctor.doctor.id, patient_id: first_patient.patient.id)
 first_consultation.save!
 
-first_prescription = Prescription.new(amount_per_serving:"1",servings_per_day:"3",number_of_days:"4",comment:"take after meals",medicine_id: panadol.id, consultation_id: first_consultation.id)
+
+first_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: panadol.id, consultation_id: first_consultation.id)
+first_prescription.price_cents = panadol.price_cents * (first_prescription.amount_per_serving.to_i * first_prescription.servings_per_day.to_i * first_prescription.number_of_days)
 first_prescription.save!
 
 

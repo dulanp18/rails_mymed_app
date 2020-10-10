@@ -5,10 +5,10 @@
 <h3><%= @prescription.servings_per_day %></h3>
 <h3><%= @prescription.number_of_days %></h3>
 <h4><%= @prescription.comment %></h4>
-<p>Price: <%= humanized_money_with_symbol(@total) %> Total</p>
+<p>Price: <%= humanized_money_with_symbol(@prescription.price) %> Total</p>
 
 <%#= form_tag orders_path do %>
-  <%#= hidden_field_tag 'medicine_id', @prescription.medicine.id%>
+  <%#= hidden_field_tag 'prescription_id', @prescription.id%>
   <%#= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <%# end %>
 

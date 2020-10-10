@@ -1,16 +1,24 @@
 class OrdersController < ApplicationController
 
+  # get all prescriptions based on ids
+  # calculate total price
+
+
+
   def create
-  teddy = Teddy.find(params[:teddy_id])
-  order  = Order.create!(teddy: teddy, teddy_sku: teddy.sku, amount: teddy.price, state: 'pending', user: current_user)
+  price = 0
+    params[:order][:prescriptions][1..-1].each do |prescription_id|
+      price += Prescription.find(prescription_id).price
+    end
+  # raise
+  order  = Order.create!(total_cost_cents: price, state: 'pending', user: current_user, consultation_id: params[:order][:consultation_id])
 
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
-      name: teddy.sku,
-      images: [teddy.photo_url],
-      amount: teddy.price_cents,
-      currency: 'eur',
+      name: "consultation - #{order.consultation.id}",
+      amount: order.total_cost_cents,
+      currency: 'aud',
       quantity: 1
     }],
     success_url: order_url(order),
