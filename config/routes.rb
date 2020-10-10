@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :tasks
 
   # Routes for Google authentication
-  get 'auth/:provider/callback', to: 'sessions#googleAuth'
+  get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
+  get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-
 
 end

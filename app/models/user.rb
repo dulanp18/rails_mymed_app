@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_one :doctor
   has_one :patient
   has_many :tasks
@@ -20,4 +21,12 @@ class User < ApplicationRecord
   def titlecase_last_name
     last_name.titlecase
   end
+
+  def from_auth_hash(auth)
+      self.access_token = auth.credentials.token
+      self.expires_at = auth.credentials.expires_at
+      self.refresh_token = auth.credentials.refresh_token
+      self.save
+  end
+
 end

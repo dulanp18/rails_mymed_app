@@ -37,6 +37,7 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @prescription = Prescription.new()
     authorize @consultation
+    @task = Task.new
   end
 
 
