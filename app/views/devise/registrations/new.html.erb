@@ -18,6 +18,8 @@
       <%= f.input :date_of_birth,
                   required: true,
                   autofocus: true,
+                  start_year: Time.now.year - 100,
+                  end_year: Time.now.year - 0,
                   input_html: { autocomplete: "date of birth" }%>
       <%= f.input :nationality,
                   required: true,
