@@ -14,4 +14,9 @@
 .nav-item {
   margin: 0px 5px 0px 5px;
   background-color: rgba(0, 200, 0, 0.3);
+  transition: all 1s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(25, 230, 117, 0.829);
 }
