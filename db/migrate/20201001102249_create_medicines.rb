@@ -1,6 +1,7 @@
 class CreateMedicines < ActiveRecord::Migration[6.0]
   def change
     create_table :medicines do |t|
+      t.string :medicine_type, null:false
       t.string :name, null: false
       t.string :strength_of_medicine, null: false
       t.string :available_status, null: false

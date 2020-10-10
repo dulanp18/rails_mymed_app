@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
   end
 
   create_table "medicines", force: :cascade do |t|
+    t.string "medicine_type", null: false
     t.string "name", null: false
     t.string "strength_of_medicine", null: false
     t.string "available_status", null: false
@@ -81,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
 
   create_table "prescriptions", force: :cascade do |t|
     t.bigint "medicine_id", null: false
-    t.text "amount_per_serving", null: false
+    t.integer "amount_per_serving", null: false
     t.decimal "servings_per_day", null: false
     t.decimal "number_of_days", null: false
     t.string "comment", null: false

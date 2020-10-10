@@ -18,6 +18,7 @@ class TasksController < ApplicationController
     @task.prescription = Prescription.find(params[:other][:prescription_id])
     @task.save
     @consultation = Consultation.find(params[:other][:consultation_id])
+    authorize @task
 
     if current_user.present? && current_user.access_token.present? && current_user.refresh_token.present?
       client = get_google_calendar_client current_user
