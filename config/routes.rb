@@ -15,10 +15,15 @@ Rails.application.routes.draw do
 
   resources :prescriptions, only: [:index,:show]
 
+  resources :tasks
+
   resources :orders, only: [:show, :create]
 
   resources :order_items
 
-
+  # Routes for Google authentication
+  get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
 
 end

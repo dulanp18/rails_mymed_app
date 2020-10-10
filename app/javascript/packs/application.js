@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initSideBar } from "../components/sidebar"
+import { initModal } from "../components/sidebar"
 
 
 

@@ -1,3 +1,4 @@
+<%= render 'shared/sidebar' %>
 <div class="container">
   <div>
     <h1> Consultation with <%= @consultation.patient.user.first_name  %> <%= @consultation.patient.user.last_name  %></h1>
@@ -11,6 +12,51 @@
           <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.amount_per_serving.to_i  %>, <%= prescription.servings_per_day.to_i  %> per day, for <%= prescription.number_of_days.to_i  %> days. <%= prescription.comment  %>
               <p>Price: <%= humanized_money_with_symbol(prescription.price) %> </p>
         </div>
+        <div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Track Via Calendar
+          </button>
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Fill In </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for @task do |f| %>
+                  <%= f.input :title, :as => :hidden, :input_html => { :value => "Remember To Take "+ prescription.medicine.name } %>
+                  <%= f.input :description, :as => :hidden, :input_html => { :value => "Amount: "+ prescription.amount_per_serving+"\b Comments: " + prescription.comment } %>
+                  <%= f.input :repeat_days, :as => :hidden, :input_html => { :value => prescription.number_of_days.to_i } %>
+
+                  <%= simple_fields_for :other do |o| %>
+                     <%= o.input :consultation_id, as: :hidden, :input_html => { :value => @consultation.id } %>
+                     <%= o.input :prescription_id, as: :hidden, :input_html => { :value => prescription.id } %>
+                  <% end %>
+
+                  <div class="field">
+                    <%= f.label :start_date %>
+                    <%= f.datetime_select :start_date %>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <div class="actions">
+                      <%= f.submit %>
+                  </div>
+                  <% end %>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     <% end %>
   </div>
