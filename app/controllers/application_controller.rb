@@ -21,7 +21,6 @@ private
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-
   def after_sign_up_path_for(resource)
     if current_user.user_type == 'doctor'
       new_doctor_path

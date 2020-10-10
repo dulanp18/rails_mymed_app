@@ -23,6 +23,8 @@ class PrescriptionsController < ApplicationController
     @medicine = Medicine.where(name: params[:other][:name], strength_of_medicine: params[:other][:strength_of_medicine])[0]
     @prescription.medicine = @medicine
     @prescription.consultation = @consultation
+    price = @medicine.price_cents * (@prescription.amount_per_serving.to_i * @prescription.number_of_days * @prescription.servings_per_day)
+    @prescription.price_cents = price
     authorize @prescription
     @prescription.save
 
@@ -31,7 +33,7 @@ class PrescriptionsController < ApplicationController
 
   def show
     @prescription = Prescription.find(params[:id])
-    medicine = Medicine.find(params[:medicine_id])
+    medicine = Medicine.find(@prescription.medicine_id)
     @prescription.medicine = medicine
     authorize @prescription
   end
@@ -42,7 +44,7 @@ class PrescriptionsController < ApplicationController
   private
 
   def prescription_params
-      params.require(:prescription).permit(:amount_per_serving, :servings_per_day, :number_of_days,:comment)
+      params.require(:prescription).permit(:amount_per_serving, :servings_per_day, :number_of_days, :comment, :price_cents)
   end
 
 

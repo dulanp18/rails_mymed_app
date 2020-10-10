@@ -9,11 +9,17 @@ Rails.application.routes.draw do
 
   resources :consultations do
     resources :prescriptions, only: [:create]
+
+    get '/cart', to: 'consultations#cart'
   end
 
   resources :prescriptions, only: [:index,:show]
 
   resources :tasks
+
+  resources :orders, only: [:show, :create]
+
+  resources :order_items
 
   # Routes for Google authentication
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
