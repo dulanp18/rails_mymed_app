@@ -6,20 +6,10 @@
     <% if @consultation.prescriptions.length == 0 %>
       <h2>No medicine prescribed yet.</h2>
     <% else %>
-    <%= simple_form_for Order.new do |f| %>
-      <%= f.input 'prescriptions', collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine} - Take #{prescription.amount_per_serving.to_i}. #{prescription.servings_per_day.to_i} per day, #{prescription.number_of_days.to_i}. #{prescription.comment}", prescription.id]}, as: :check_boxes %>
-      <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>
-      <%= f.submit %>
-    <% end %>
       <% @consultation.prescriptions.each do |prescription|  %>
         <div>
           <%= prescription.medicine.name %> - <%= prescription.medicine.strength_of_medicine  %> - Take <%= prescription.amount_per_serving.to_i  %>, <%= prescription.servings_per_day.to_i  %> per day, for <%= prescription.number_of_days.to_i  %> days. <%= prescription.comment  %>
               <p>Price: <%= humanized_money_with_symbol(prescription.price) %> </p>
-
-              <%= simple_form_for OrderItem.new do |f| %>
-                <%= f.input 'prescription_id', input_html: {value: prescription.id}, as: :hidden %>
-                <%= f.submit 'Add to cart', class: 'btn btn-primary' %>
-              <% end %>
         </div>
       <% end %>
     <% end %>

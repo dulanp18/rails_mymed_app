@@ -1,7 +1,5 @@
 class OrdersController < ApplicationController
 
-  # get all prescriptions based on ids
-  # calculate total price
 
 
 

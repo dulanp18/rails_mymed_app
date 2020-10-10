@@ -36,8 +36,12 @@ class ConsultationsController < ApplicationController
   def show
     @consultation = Consultation.find(params[:id])
     @prescription = Prescription.new()
-    # @prescription.total = @medicine.price_cents * (@prescription.amount_per_serving * @prescription.number_of_days)
-# raise
+    authorize @consultation
+  end
+
+  def cart
+    @consultation = Consultation.find(params[:consultation_id])
+    @prescription = Prescription.new()
     authorize @consultation
   end
 
