@@ -2,7 +2,7 @@ class CreatePrescriptions < ActiveRecord::Migration[6.0]
   def change
     create_table :prescriptions do |t|
       t.bigint "medicine_id", null: false
-      t.text "amount_per_serving", null: false
+      t.integer "amount_per_serving", null: false
       t.decimal "servings_per_day", null: false
       t.decimal "number_of_days", null: false
       t.string "comment", null: false

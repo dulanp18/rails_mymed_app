@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_10_10_035320) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
   end
 
   create_table "medicines", force: :cascade do |t|
+    t.string "medicine_type", null: false
     t.string "name", null: false
     t.string "strength_of_medicine", null: false
     t.string "available_status", null: false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
 
   create_table "prescriptions", force: :cascade do |t|
     t.bigint "medicine_id", null: false
-    t.text "amount_per_serving", null: false
+    t.integer "amount_per_serving", null: false
     t.decimal "servings_per_day", null: false
     t.decimal "number_of_days", null: false
     t.string "comment", null: false
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
     t.string "contact_number", null: false
     t.string "user_type", null: false
     t.string "access_token"
-    t.datetime "expires_at"
+    t.integer "expires_at"
     t.string "refresh_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
   add_foreign_key "consultations", "patients"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "prescriptions"
-  add_foreign_key "tasks", "prescriptions"
-  add_foreign_key "tasks", "users"
   add_foreign_key "orders", "consultations"
   add_foreign_key "orders", "users"
+  add_foreign_key "tasks", "prescriptions"
+  add_foreign_key "tasks", "users"
 end

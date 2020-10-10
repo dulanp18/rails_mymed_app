@@ -23,7 +23,7 @@ class PrescriptionsController < ApplicationController
     @medicine = Medicine.where(name: params[:other][:name], strength_of_medicine: params[:other][:strength_of_medicine])[0]
     @prescription.medicine = @medicine
     @prescription.consultation = @consultation
-    price = @medicine.price_cents * (@prescription.amount_per_serving.to_i * @prescription.number_of_days * @prescription.servings_per_day)
+    price = @medicine.price_cents * (@prescription.amount_per_serving * @prescription.number_of_days * @prescription.servings_per_day)
     @prescription.price_cents = price
     authorize @prescription
     @prescription.save
