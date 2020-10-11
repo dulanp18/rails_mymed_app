@@ -19,7 +19,8 @@ class ConsultationPolicy < ApplicationPolicy
   end
 
   def cart?
-    record.user == user
+    true
+    # raise
   end
 
 end

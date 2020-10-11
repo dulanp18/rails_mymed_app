@@ -24,18 +24,18 @@ Doctor.create!(user: first_doctor, medical_licence_number: 00000, country_of_doc
 
 first_patient = User.new(first_name: 'Nick', last_name: 'Barkolias', date_of_birth: DateTime.new(2009,9,1,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake@gmail.com', user_type: 'patient')
 first_patient.save!
-Patient.create!(home_address: '17 milton road', allergies: 'none', user_id: first_patient.id)
+Patient.create!(home_address: '17 milton road', allergies: 'none', user: first_patient)
 
-panadol = Medicine.new(name:"Panadol", strength_of_medicine:"500mg", available_status:"Available", price_cents: 100, number_of_servings: 15, medicine_type: "tablet")
+panadol = Medicine.new(name:"Panadol", strength_of_medicine:"500mg", available_status:"Available", price_cents: 20, number_of_servings: 15, medicine_type: "tablet")
 panadol.save!
 
-imodium = Medicine.new(name:"Imodium", strength_of_medicine:"300mg", available_status:"Available", price_cents: 200, number_of_servings: 30, medicine_type: "tablet")
+imodium = Medicine.new(name:"Imodium", strength_of_medicine:"300mg", available_status:"Available", price_cents: 50, number_of_servings: 30, medicine_type: "tablet")
 imodium.save!
 
-neurofen = Medicine.new(name:"Neurofen", strength_of_medicine:"350mg", available_status:"Available", price_cents: 150, number_of_servings: 20, medicine_type: "tablet")
+neurofen = Medicine.new(name:"Neurofen", strength_of_medicine:"350mg", available_status:"Available", price_cents: 30, number_of_servings: 20, medicine_type: "tablet")
 neurofen.save!
 
-first_consultation = Consultation.new(doctor_id: first_doctor.doctor.id, patient_id: first_patient.patient.id)
+first_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
 first_consultation.save!
 
 
