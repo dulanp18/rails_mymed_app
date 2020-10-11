@@ -1,7 +1,7 @@
-    <div class="container">
-      <%= simple_form_for Order.new do |f| %>
-        <%= f.input 'prescriptions', collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine} - Take #{prescription.amount_per_serving.to_i}. #{prescription.servings_per_day.to_i} per day, #{prescription.number_of_days.to_i}. #{prescription.comment}", prescription.id]}, as: :check_boxes %>
-        <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>
-        <%= f.submit %>
-      <% end %>
-    </div>
+<div class="container">
+  <%= simple_form_for Order.new do |f| %>
+    <%= f.input 'prescriptions', collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine} - Take #{prescription.amount_per_serving.to_i} #{prescription.medicine.medicine_type}. #{prescription.servings_per_day.to_i} times per day. For #{prescription.number_of_days.to_i} days. #{prescription.comment} - #{humanized_money_with_symbol prescription.price}", prescription.id]}, as: :check_boxes %>
+    <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>
+    <%= f.submit %>
+  <% end %>
+</div>
