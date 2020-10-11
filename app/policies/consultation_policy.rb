@@ -19,7 +19,7 @@ class ConsultationPolicy < ApplicationPolicy
   end
 
   def cart?
-    true
+    record.user == user
   end
 
 end
