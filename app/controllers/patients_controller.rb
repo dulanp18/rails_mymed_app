@@ -26,6 +26,12 @@ class PatientsController < ApplicationController
     end
   end
 
+  def show
+    @patient = Patient.find(params[:id])
+    @consultations = @patient.consultations
+    @prescriptions = @patient.prescriptions
+    @task = Task.new
+  end
 
   private
 
