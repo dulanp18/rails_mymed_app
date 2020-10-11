@@ -20,6 +20,7 @@ class ConsultationPolicy < ApplicationPolicy
 
   def cart?
     true
+    # raise
   end
 
 end
