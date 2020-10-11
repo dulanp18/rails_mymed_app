@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-  resources :orders, only: [:show, :create]
+ resources :orders, only: [:show, :create] do
+  resources :payments, only: :new
+end
 
   resources :order_items
 
