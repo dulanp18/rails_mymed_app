@@ -6,27 +6,57 @@
   <%= link_to "Create A Consultation", new_consultation_path %>
   </div>
 
-  <% @consultations.each do |consultation| %>
-  <div>
-    <p> Consultation With: <strong><%= consultation.patient.user.first_name + " " + consultation.patient.user.last_name  %></strong></p>
-    <div>This consultation has <%= consultation.prescriptions.length %> prescriptions</div>
-    <p> It was created at <%= consultation.created_at %> and last updated at <%= consultation.updated_at %> </p>
-    <%= link_to "View Consultation", consultation_path(consultation)   %>
-  </div>
-  <% end %>
+    <table class="table table-striped table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date Of Consultation</th>
+          <th scope="col">Patient</th>
+          <th scope="col">Number Of Prescriptions</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @consultations.each do |consultation| %>
+        <tr>
+          <th scope="row"><%= consultation.created_at %></th>
+          <td>Dr. <%= consultation.patient.user.first_name + " " + consultation.patient.user.last_name  %></td>
+          <td><%= consultation.prescriptions.length %></td>
+          <td>
+            <div class="btn btn-primary">
+              <%= link_to "View Consultation", consultation_path(consultation) %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 <% end %>
 
-<% if current_user.user_type == 'patient' %>
+  <% if current_user.user_type == 'patient' %>
 
-  <% @consultations.each do |consultation| %>
-  <div>
-    <p> Consulted By: <strong>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></strong> </p>
-    <div>This consultation has <%= consultation.prescriptions.length %> prescriptions</div>
-    <p> It was created at <%= consultation.created_at %> and last updated at <%= consultation.updated_at %> </p>
-    <%= link_to "View Consultation", consultation_path(consultation)   %>
-  </div>
+   <table class="table table-striped table-dark table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Date Of Consultation</th>
+          <th scope="col">Consulted By</th>
+          <th scope="col">Number Of Prescriptions</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @consultations.each do |consultation| %>
+        <tr>
+          <th scope="row"><%= consultation.created_at %></th>
+          <td>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></td>
+          <td><%= consultation.prescriptions.length %></td>
+          <td><%= link_to "View Consultation", consultation_path(consultation)   %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   <% end %>
-<% end %>
+
 
 
 </div>

@@ -34,8 +34,10 @@ private
        new_doctor_path
       elsif current_user.user_type == "patient" && current_user.patient.nil?
        new_patient_path
-      else
-        consultations_path
+      elsif current_user.user_type == "doctor"
+        doctor_path(current_user.doctor)
+      elsif current_user.user_type == "patient"
+        patient_path(current_user.patient)
       end
   end
 end

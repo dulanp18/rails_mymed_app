@@ -75,11 +75,11 @@ class TasksController < ApplicationController
         description: task[:description],
         start: {
           date_time: start_time_str,
-          time_zone: "Asia/Kolkata"
+          time_zone: "Pacific/Auckland"
         },
         end: {
           date_time: end_time_str,
-          time_zone: "Asia/Kolkata"
+          time_zone: "Pacific/Auckland"
         },
         recurrence: [
           "RRULE:FREQ=DAILY;COUNT=#{task[:repeat_days]}"
