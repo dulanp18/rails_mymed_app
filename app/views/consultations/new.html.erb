@@ -12,14 +12,15 @@
   </div>
 
 
-<% if @patient %>
-  <% @patient.each do |patient| %>
+<% if @users %>
+  <% @users.each do |user| %>
   <div>
-    <h3><%= patient.first_name %></h3>
-    <h3><%= patient.last_name %></h3>
-    <h3><%= patient.email %></h3>
-    <h3><%= patient.contact_number %></h3>
-    <%= link_to "Start Consultation For " + patient.first_name, consultations_path(:consultation => { :patient => patient.email }), method: :post %>
+    <h3><%= user.first_name %></h3>
+    <h3><%= user.last_name %></h3>
+    <h3><%= user.email %></h3>
+    <h3><%= user.contact_number %></h3>
+    <%= link_to "Start Consultation For " + user.first_name, consultations_path(:consultation => { :patient => user.email }), method: :post %>
+    <%= link_to "View Patients Profile ", patient_path(user.patient) %>
     <% end %>
   </div>
 <% end %>

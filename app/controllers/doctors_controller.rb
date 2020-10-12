@@ -20,6 +20,8 @@ end
 def show
   @doctor = Doctor.find(params[:id])
   authorize @doctor
+  @consultations = @doctor.consultations
+  @prescriptions = @doctor.prescriptions
 end
 
 
