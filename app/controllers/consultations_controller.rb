@@ -37,6 +37,7 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @prescription = Prescription.new()
     @order = Order.where(consultation_id: @consultation.id)
+
     authorize @consultation
     @task = Task.new
     @medicines = Medicine.all

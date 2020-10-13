@@ -25,7 +25,7 @@
             <tr>
               <th scope="row"><%= prescription.medicine.name %></th>
               <td><%= prescription.medicine.strength_of_medicine  %></td>
-              <td></td>
+              <td><%= prescription.medicine.medicine_type.titlecase %></td>
               <td><%= prescription.amount_per_serving.to_i  %></td>
               <td><%= prescription.servings_per_day.to_i  %></td>
               <td><%= prescription.number_of_days.to_i  %></td>
@@ -77,10 +77,13 @@
   <% end %>
 
     <div>
-      <% if !@order.present? %>
+      <% if !@order.present? && current_user.user_type == 'patient'%>
         <%= link_to 'Purchase prescriptions', consultation_cart_path(@consultation), class: 'btn btn-secondary' %>
       <% end %>
+
+      <% if !@consultation.prescriptions.present? %>
       <%= link_to "Back To All Consultations", consultations_path %>
+      <% end %>
   </div>
 
 
@@ -89,10 +92,15 @@
     <% if current_user.user_type == 'doctor' %>
       <%= simple_form_for [@consultation, @prescription] do |f| %>
 
-        <%= simple_fields_for :other do |o| %>
+        <%= simple_fields_for @medicine do |o| %>
         <div class="d-flex">
+<<<<<<< HEAD
           <%= o.input :name, collection: @medicine_names %>
           <%= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
+=======
+          <%= o.input :medicine, collection: @medicines.map { |medicine| ["#{medicine.name} - #{medicine.strength_of_medicine} - #{medicine.medicine_type.titlecase}", medicine.id] }, as: :select%>
+          <%#= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
+>>>>>>> 595b42bbeb75efed1c89e3e4bdd06239c52aa1f1
         <% end %>
         </div>
         <div class="d-flex">
