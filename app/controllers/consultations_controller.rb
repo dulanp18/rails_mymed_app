@@ -37,9 +37,13 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.find(params[:id])
     @prescription = Prescription.new()
     @order = Order.where(consultation_id: @consultation.id)
-    # raise
     authorize @consultation
     @task = Task.new
+    @medicines = Medicine.all
+    @medicine_names = []
+    @medicines.each do |medicine|
+      @medicine_names << medicine.name + " - " medicine.strength_of_medicine + " - " + medicine.medicine_type
+    end
   end
 
   def cart

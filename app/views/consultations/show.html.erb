@@ -91,7 +91,7 @@
 
         <%= simple_fields_for :other do |o| %>
         <div class="d-flex">
-          <%= o.input :name, label: 'Name' %>
+          <%= o.input :name, collection: @medicine_names %>
           <%= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
         <% end %>
         </div>

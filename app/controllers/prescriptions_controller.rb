@@ -19,6 +19,7 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = Prescription.new(prescription_params)
+    raise
     @consultation = Consultation.find(params[:consultation_id])
     @medicine = Medicine.where(name: params[:other][:name].titlecase, strength_of_medicine: params[:other][:strength_of_medicine])[0]
     @prescription.medicine = @medicine
