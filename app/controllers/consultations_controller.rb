@@ -15,7 +15,7 @@ class ConsultationsController < ApplicationController
     authorize @consultation
 
     if params[:query].present?
-     @patient = User.where(email: params[:query].downcase, user_type: 'patient')
+     @users = User.where(email: params[:query].downcase, user_type: 'patient')
     end
   end
 

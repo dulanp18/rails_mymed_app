@@ -22,7 +22,7 @@
         <h3><%= @patient.user.contact_number %></h3>
         <% if current_user.user_type == 'doctor' %>
           <div>
-            <%= link_to "Start Consultation For " + patient.first_name, consultations_path(:consultation => { :patient => patient.email }), method: :post %>
+            <%= link_to "Start Consultation For " + @patient.user.first_name, consultations_path(:consultation => { :patient => @patient.user.email }), method: :post %>
           </div>
         <% end %>
       </div>
