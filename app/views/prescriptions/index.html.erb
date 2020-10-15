@@ -8,7 +8,7 @@
   <div>
     <p> Prescribed: <strong><%= prescription.medicine.name  %></strong></p>
     <div>This was prescribed by <%= prescription.consultation.doctor.user.first_name %> <%= prescription.consultation.doctor.user.last_name %></div>
-    <p> It was created at <%= prescription.created_at %> and last updated at <%= prescription.updated_at %> </p>
+    <p> It was created at <%= prescription.created_at.strftime("Printed on %m/%d/%Y") %> and last updated at <%= prescription.updated_at.to_s(:long) %> </p>
     <%= link_to "View Prescription", prescription_path(prescription)   %>
   </div>
   <% end %>
