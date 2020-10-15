@@ -22,6 +22,7 @@ def show
   authorize @doctor
   @consultations = @doctor.consultations
   @prescriptions = @doctor.prescriptions
+  @age = Date.today.year - @doctor.user.date_of_birth.year
 end
 
 
