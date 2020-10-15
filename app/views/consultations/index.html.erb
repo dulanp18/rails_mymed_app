@@ -21,8 +21,10 @@
           <td>Dr. <%= consultation.patient.user.first_name + " " + consultation.patient.user.last_name  %></td>
           <td><%= consultation.prescriptions.length %></td>
           <td>
-            <div>
-              <%= link_to "View Consultation", consultation_path(consultation), class:"btn btn-primary" %>
+            <div class="btn btn-primary">
+              <div class="btn-text">
+                <%= link_to "View Consultation", consultation_path(consultation) %>
+              </div>
             </div>
           </td>
         </tr>
