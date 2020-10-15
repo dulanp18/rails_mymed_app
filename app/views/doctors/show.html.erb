@@ -36,7 +36,7 @@
 
         <% if current_user.user_type == 'doctor' %>
           <div>
-            <%= link_to "Start Consultation ", new_consultation_path %>
+            <%= link_to "Start Consultation ", new_consultation_path, class:"btn btn-info" %>
           </div>
         <% end %>
       </div>
