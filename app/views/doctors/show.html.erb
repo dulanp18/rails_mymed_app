@@ -83,14 +83,14 @@
             <tbody>
               <% @prescriptions.each do |prescription| %>
               <tr>
-                <th scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
+                <th class="text-nowrap" scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
                 <td><%= prescription.medicine.name  %></td>
                 <td><%= prescription.medicine.strength_of_medicine  %></td>
                 <td></td>
                 <td><%= prescription.amount_per_serving.to_i  %></td>
                 <td><%= prescription.servings_per_day.to_i  %></td>
                 <td><%= prescription.number_of_days.to_i  %></td>
-                <td><%= prescription.comment  %></td>
+                <td><%= prescription.comment.capitalize  %></td>
               </tr>
               <% end %>
             </tbody>
