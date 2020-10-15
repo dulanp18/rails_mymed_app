@@ -1,28 +1,27 @@
 <div class="container">
+  <div class="inner-container">
+    <h1>Search for Patient</h1>
+
+      <div class="search">
+        <%= form_tag(new_consultation_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :query, params[:query], placeholder: "Please enter email", class: 'search-bar' %>
+        <%= submit_tag "Search", class: 'btn btn-info ml-2 p-2 rounded-lg' %>
+        <% end %>
+      </div>
 
 
-<h1>Search for Patient</h1>
-
-  <div class="search">
-    <%= form_tag(new_consultation_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :query, params[:query], placeholder: "Please enter email", class: 'search-bar' %>
-    <%= submit_tag "Search", class: 'btn btn-info ml-2 p-2 rounded-lg' %>
+    <% if @users %>
+      <% @users.each do |user| %>
+      <div class="person-info">
+        <h3><%= user.first_name %></h3>
+        <h3><%= user.last_name %></h3>
+        <h3><%= user.email %></h3>
+        <h3><%= user.contact_number %></h3>
+      </div>
+        <%= link_to "Start Consultation For " + user.first_name, consultations_path(:consultation => { :patient => user.email }), method: :post, class:"btn btn-info" %>
+        <%= link_to "View Patients Profile ", patient_path(user.patient), class:"nav-item nav-link" %>
+        <% end %>
     <% end %>
   </div>
-
-
-<% if @users %>
-  <% @users.each do |user| %>
-  <div>
-    <h3><%= user.first_name %></h3>
-    <h3><%= user.last_name %></h3>
-    <h3><%= user.email %></h3>
-    <h3><%= user.contact_number %></h3>
-    <%= link_to "Start Consultation For " + user.first_name, consultations_path(:consultation => { :patient => user.email }), method: :post %>
-    <%= link_to "View Patients Profile ", patient_path(user.patient) %>
-    <% end %>
-  </div>
-<% end %>
-
 </div>
 
