@@ -43,7 +43,7 @@
         <tbody>
           <% @consultations.each do |consultation| %>
           <tr>
-            <th scope="row"><%= consultation.created_at %></th>
+            <th scope="row"><%= consultation.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
             <td>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></td>
             <td><%= consultation.prescriptions.length %></td>
             <td><%= link_to "View Consultation", consultation_path(consultation)   %></td>
@@ -73,7 +73,7 @@
             <tbody>
               <% @prescriptions.each do |prescription| %>
               <tr>
-                <th scope="row"><%= prescription.created_at %></th>
+                <th scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
                 <td><%= prescription.medicine.name  %></td>
                 <td><%= prescription.medicine.strength_of_medicine  %></td>
                 <td></td>
