@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-
+  
   def index
     all_patients = policy_scope(Patient)
   if params[:query].present?
@@ -31,6 +31,7 @@ class PatientsController < ApplicationController
     @consultations = @patient.consultations
     @prescriptions = @patient.prescriptions
     @task = Task.new
+    @age = Date.today.year - @patient.user.date_of_birth.year
   end
 
   private
