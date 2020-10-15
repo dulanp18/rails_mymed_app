@@ -63,7 +63,7 @@
             <th scope="row"><%= consultation.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
             <td>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></td>
             <td><%= consultation.prescriptions.length %></td>
-            <td><%= link_to "View Consultation", consultation_path(consultation)   %></td>
+            <td><%= link_to "View Consultation", consultation_path(consultation), class:"btn btn-primary" %></td>
           </tr>
           <% end %>
         </tbody>
@@ -90,7 +90,7 @@
             <tbody>
               <% @prescriptions.each do |prescription| %>
               <tr>
-                <th scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
+                <th class="text-nowrap" scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
                 <td><%= prescription.medicine.name  %></td>
                 <td><%= prescription.medicine.strength_of_medicine  %></td>
                 <td><%= prescription.medicine.medicine_type.titlecase %></td>
@@ -101,7 +101,7 @@
                 <% if current_user.user_type == 'patient' %>
                 <td>
                   <div>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                      <button type="button" class="btn btn-primary text-nowrap" data-toggle="modal" data-target="#exampleModal">
                         Track Via Calendar
                       </button>
 
