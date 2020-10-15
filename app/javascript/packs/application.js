@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initSideBar } from "../components/sidebar"
-import { initModal } from "../components/sidebar"
+import { initModal } from "../components/modal_button"
 
 
 
@@ -36,6 +36,7 @@ import { initModal } from "../components/sidebar"
 
 document.addEventListener('turbolinks:load', () => {
   initSideBar();
+  initModal();
   // Call your functions here, e.g:
   // initSelect2();
 });
