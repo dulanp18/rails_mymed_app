@@ -1,3 +1,5 @@
+<%= render 'shared/sidebar' %>
+
 <div class=" container">
 
 <% if current_user.user_type == 'patient' %>
@@ -6,7 +8,7 @@
   <div>
     <p> Prescribed: <strong><%= prescription.medicine.name  %></strong></p>
     <div>This was prescribed by <%= prescription.consultation.doctor.user.first_name %> <%= prescription.consultation.doctor.user.last_name %></div>
-    <p> It was created at <%= prescription.created_at.strftime("Printed on %m/%d/%Y") %> and last updated at <%= prescription.updated_at.to_s(:long) %> </p>
+    <p> It was created at <%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %> and last updated at <%= prescription.updated_at.strftime("%B %e, %Y, %I:%m%P") %> </p>
     <%= link_to "View Prescription", prescription_path(prescription)   %>
   </div>
   <% end %>

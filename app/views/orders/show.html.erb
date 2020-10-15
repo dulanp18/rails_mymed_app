@@ -3,7 +3,7 @@
     <div class="col">
       <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
       <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
+        <li><strong>ISSUED ON</strong> <%= @order.created_at.strftime("%B %e, %Y, %I:%m%P") %></li>
         <li><strong>CONSULTATION</strong> <%= @order.consultation.id %> </li>
         <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.total_cost_cents %></li>
         </li>
