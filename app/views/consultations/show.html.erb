@@ -46,10 +46,10 @@
                             <%= f.input :title, :as => :hidden, :input_html => { :value => "Remember To Take "+ prescription.medicine.name } %>
                             <%= f.input :description, :as => :hidden, :input_html => { :value => "Amount:  #{prescription.amount_per_serving}  - Comments: #{prescription.comment} "} %>
                             <%= f.input :repeat_days, :as => :hidden, :input_html => { :value => prescription.number_of_days.to_i } %>
-                            <%= simple_fields_for :other do |o| %>
-                               <%= o.input :consultation_id, as: :hidden, :input_html => { :value => @consultation.id } %>
-                               <%= o.input :prescription_id, as: :hidden, :input_html => { :value => prescription.id } %>
-                            <% end %>
+                              <%= simple_fields_for :other do |o| %>
+                                 <%= o.input :consultation_id, as: :hidden, :input_html => { :value => @consultation.id } %>
+                                 <%= o.input :prescription_id, as: :hidden, :input_html => { :value => prescription.id } %>
+                              <% end %>
 
                             <div class="field">
                               <%= f.label :start_date %>
@@ -93,13 +93,8 @@
 
         <%= simple_fields_for @medicine do |o| %>
         <div class="d-flex">
-<<<<<<< HEAD
-          <%= o.input :name, collection: @medicine_names %>
-          <%= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
-=======
           <%= o.input :medicine, collection: @medicines.map { |medicine| ["#{medicine.name} - #{medicine.strength_of_medicine} - #{medicine.medicine_type.titlecase}", medicine.id] }, as: :select%>
-          <%#= o.input :strength_of_medicine, label: 'Strength of Medicine' %>
->>>>>>> 595b42bbeb75efed1c89e3e4bdd06239c52aa1f1
+
         <% end %>
         </div>
         <div class="d-flex">
@@ -111,7 +106,7 @@
           <%= f.button :submit, "Prescribe" %>
       <% end %>
 
-      <%= link_to "Complete Consultation", consultations_path %>
+      <%= link_to "Complete Consultation", consultations_path, class: "nav-link"  %>
 
     <% end %>
   </div>

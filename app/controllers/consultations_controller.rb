@@ -41,10 +41,6 @@ class ConsultationsController < ApplicationController
     authorize @consultation
     @task = Task.new
     @medicines = Medicine.all
-    @medicine_names = []
-    @medicines.each do |medicine|
-      @medicine_names << medicine.name + " - " medicine.strength_of_medicine + " - " + medicine.medicine_type
-    end
   end
 
   def cart

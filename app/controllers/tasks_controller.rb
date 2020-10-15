@@ -3,6 +3,7 @@ require "google/api_client/client_secrets.rb"
 
 
 class TasksController < ApplicationController
+  #before_action :check_expiration, only: :create
   CALENDAR_ID = 'primary'
 
   def new
@@ -10,6 +11,8 @@ class TasksController < ApplicationController
   end
 
   def create
+    @consultation = Consultation.find(params[:other][:consultation_id])
+    return false unless check_expiration(@consultation)
     task = params[:task]
     @task = Task.new(task_params)
     @task.start_date = Time.new(task['start_date(1i)'],task['start_date(2i)'],task['start_date(3i)'],task['start_date(4i)'],task['start_date(5i)']).to_datetime
@@ -17,19 +20,27 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.prescription = Prescription.find(params[:other][:prescription_id])
     @task.save
-    @consultation = Consultation.find(params[:other][:consultation_id])
     # raise
     # authorize @task
-
     if current_user.present? && current_user.access_token.present? && current_user.refresh_token.present?
-      client = get_google_calendar_client current_user
-      event = get_event task
-      client.insert_event('primary', event)
-      flash[:notice] = 'Prescription was successfully added.'
-      redirect_to consultation_path(@consultation)
-    else
-      redirect_to login_path
-    end
+        client = get_google_calendar_client current_user
+        event = get_event task
+        client.insert_event('primary', event)
+        flash[:notice] = 'Prescription was successfully added.'
+        redirect_to consultation_path(@consultation)
+     end
+  end
+
+  def check_expiration(consultation)
+      #return false unless current_user.expires_at
+      token_expired_date = current_user.expires_at.nil? ? DateTime.now - 1 : DateTime.strptime(current_user.expires_at.to_s,'%s')
+      if current_user.access_token.nil? || DateTime.now > token_expired_date
+        current_user.access_token = nil
+        current_user.save
+        redirect_to(login_path, params:{consultation_id: consultation.id})
+        return false
+      end
+      return true
   end
 
 
@@ -47,18 +58,15 @@ class TasksController < ApplicationController
     begin
       client.authorization = secrets.to_authorization
       client.authorization.grant_type = "refresh_token"
-
-      if !current_user.present?
-        client.authorization.refresh!
-        current_user.update_attributes(
-          access_token: client.authorization.access_token,
-          refresh_token: client.authorization.refresh_token,
-          expires_at: client.authorization.expires_at.to_i
-        )
-      end
-    rescue => e
-      flash[:error] = 'Your token has been expired. Please login again with google.'
-      redirect_to :login
+    #   client.authorization.refresh!
+    #   current_user.update_attributes(
+    #       access_token: client.authorization.access_token,
+    #       refresh_token: client.authorization.refresh_token,
+    #       expires_at: client.authorization.expires_at.to_i
+    #     )
+    # # rescue => e
+    # #    flash[:error] = 'Your token has been expired. Please login again with google.'
+    # #    redirect_to :login
     end
     client
   end
