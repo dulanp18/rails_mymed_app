@@ -1,3 +1,10 @@
 .btn-text {
-    
+    background-color: rgba(0, 200, 0, 0.3);
+    padding: 3px;
+    margin-bottom: 10px;
 }
+
+.btn-text:hover {
+    background-color: rgba(25, 230, 117, 0.829);
+    transition: all 0.5s ease;
+  }
