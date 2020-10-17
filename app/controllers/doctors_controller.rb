@@ -29,7 +29,7 @@ end
   private
 
    def doctor_params
-      params.require(:doctor).permit(:medical_licence_number, :country_of_doctor_licence, :clinic_of_practice, :address_of_clinic_string)
+      params.require(:doctor).permit(:medical_licence_number, :country_of_doctor_licence, :clinic_of_practice, :address_of_clinic)
   end
 
 

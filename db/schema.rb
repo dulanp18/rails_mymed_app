@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_10_10_035320) do
     t.integer "medical_licence_number", null: false
     t.string "country_of_doctor_licence", null: false
     t.string "clinic_of_practice", null: false
-    t.string "address_of_clinic_string", null: false
+    t.string "address_of_clinic", null: false
     t.string "profile_status", default: "unapproved", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
