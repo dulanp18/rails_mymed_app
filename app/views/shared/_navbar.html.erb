@@ -30,7 +30,7 @@
     <div class="nav-bar-in">
       <% if user_signed_in? %>
         <div >
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link logout-btn bg-transparent border border-success " %>
         </div>
       <% end %>
     </div>
