@@ -19,7 +19,7 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = Prescription.new(prescription_params)
-    raise
+    # raise
     @consultation = Consultation.find(params[:consultation_id])
     @medicine = Medicine.find(params[:medicine])
     # raise
