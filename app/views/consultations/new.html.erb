@@ -12,14 +12,29 @@
 
     <% if @users %>
       <% @users.each do |user| %>
-      <div class="person-info">
-        <h3><%= user.first_name %></h3>
-        <h3><%= user.last_name %></h3>
-        <h3><%= user.email %></h3>
-        <h3><%= user.contact_number %></h3>
-      </div>
+      <table class="table table-striped table-dark table-hover mt-2">
+        <thead>
+          <tr>
+            <th scope="col">Patient Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>  <th scope="row">First Name: <%= user.first_name %></th>
+                <th scope="row">Last Name: <%= user.last_name %></th> </tr>
+          <tr>  <th scope="row">Email: <%= user.email %></th>
+                <th scope="row">Contact Number: <%= user.contact_number %></th> </tr>
+          <tr>  <th scope="row">Date Of Birth: <%= user.date_of_birth.strftime("%B %e, %Y") %></th>
+                <th scope="row">Age: <%=  %></th> </tr>
+          <tr>  <th scope="row">Nationality: <%= user.nationality %></th>
+                <th scope="row">Home Address: <%= user.patient.home_address %></th> </tr>
+          <tr>  <th scope="row">Allergies: <%= user.patient.allergies %></th>
+                <th scope="row"></th> </tr>
+        </tbody>
+      </table>
+      <div>
         <%= link_to "Start Consultation For " + user.first_name, consultations_path(:consultation => { :patient => user.email }), method: :post, class:"btn btn-info" %>
-        <%= link_to "View Patients Profile ", patient_path(user.patient), class:"nav-item nav-link" %>
+        <%#= link_to "View Patients Profile ", patient_path(user.patient), class:"nav-item nav-link" %>
+      </div>
         <% end %>
     <% end %>
   </div>
