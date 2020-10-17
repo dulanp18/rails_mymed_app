@@ -3,12 +3,12 @@
     <%= link_to home_path do %>
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
-  <% elsif current_user.user_type == 'doctor'%>
-    <%= link_to doctor_path(current_user) do %>
+  <% elsif current_user.user_type == 'doctor' && current_user.doctor %>
+    <%= link_to doctor_path(current_user.doctor) do %>
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
-  <% elsif current_user.user_type == 'patient' %>
-    <%= link_to patient_path(current_user) do %>
+  <% elsif current_user.user_type == 'patient' && current_user.patient %>
+    <%= link_to patient_path(current_user.patient) do %>
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
     <% else %>
@@ -32,6 +32,9 @@
         <div >
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link logout-btn bg-transparent border border-success " %>
         </div>
+        <% if current_user.user_type == 'doctor' %>
+          <%= link_to "Create A Consultation", new_consultation_path, class:"btn consultation-button" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
