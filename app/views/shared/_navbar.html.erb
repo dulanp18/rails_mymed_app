@@ -1,4 +1,7 @@
 <div class="nav-bar">
+    <%= link_to  do %>
+      <%= image_tag 'logo.png', height: "60px" %>
+    <% end %>
   <% if !user_signed_in? %>
     <div class="nav-bar-out">
       <div>
