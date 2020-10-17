@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-  
+
   def index
     all_patients = policy_scope(Patient)
   if params[:query].present?
