@@ -1,7 +1,22 @@
 <div class="nav-bar">
-    <%= link_to  do %>
-      <%= image_tag 'logo.png', height: "60px" %>
+  <% if !user_signed_in? %>
+    <%= link_to home_path do %>
+      <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
+  <% elsif current_user.user_type == 'doctor'%>
+    <%= link_to doctor_path(current_user.doctor) do %>
+      <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
+    <% end %>
+  <% elsif current_user.user_type == 'doctor' %>
+    <%= link_to patient_path(current_user.patient) do %>
+      <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
+    <% end %>
+    <% else %>
+      <%= link_to home_path do %>
+        <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
+      <% end %>
+  <% end %>
+
   <% if !user_signed_in? %>
     <div class="nav-bar-out">
       <div>

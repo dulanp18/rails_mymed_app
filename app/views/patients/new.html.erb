@@ -1,5 +1,7 @@
-<%= simple_form_for @patient do |f| %>
-  <%= f.input :home_address %>
-  <%= f.input :allergies %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container w-50 mt-3 p-3 rounded" style="background-color: #efefef">
+  <%= simple_form_for @patient do |f| %>
+    <%= f.input :home_address %>
+    <%= f.input :allergies %>
+    <%= f.button :submit, class: 'nav-item' %>
+  <% end %>
+</div>
