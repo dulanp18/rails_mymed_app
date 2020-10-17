@@ -19,13 +19,32 @@
 }
 
 .nav-item {
+  color: #444;
   margin: 20px 16px 0px 5px;
   background-color: rgba(25, 230, 117, 0.8);
+  border-radius: 4px;
   transition: all 1s ease;
 }
 
 .nav-item:hover {
   background-color: rgba(25, 230, 117, 1);
+}
+
+
+
+.nav-tab {
+  background-color: rgb(7,207,183);
+  margin: 20px 16px 0px 5px;
+  transition: all 1s ease;
+  border-radius: 2px;
+}
+
+a {
+  color: #444;
+}
+
+a:hover {
+  color: #444;
 }
 
 .logo {
