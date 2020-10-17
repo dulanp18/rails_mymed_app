@@ -22,7 +22,7 @@ first_doctor = User.new(first_name: 'Nicholas', last_name: 'Barkolias', date_of_
 first_doctor.save!
 Doctor.create!(user: first_doctor, medical_licence_number: 00000, country_of_doctor_licence: 'Australia', clinic_of_practice: 'Melbourne', address_of_clinic_string: 'Collins street, Melbourne')
 
-first_patient = User.new(first_name: 'Nick', last_name: 'Barkolias', date_of_birth: DateTime.new(2009,9,1,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake@gmail.com', user_type: 'patient')
+first_patient = User.new(first_name: 'Nick', last_name: 'Barkolias', date_of_birth: DateTime.new(1989,12,2,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake@gmail.com', user_type: 'patient')
 first_patient.save!
 Patient.create!(home_address: '17 milton road', allergies: 'none', user: first_patient)
 
