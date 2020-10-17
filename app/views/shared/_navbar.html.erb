@@ -1,4 +1,7 @@
 <div class="nav-bar">
+    <%= link_to  do %>
+      <%= image_tag 'logo.png', height: "60px" %>
+    <% end %>
   <% if !user_signed_in? %>
     <div class="nav-bar-out">
       <div>
@@ -10,9 +13,6 @@
     </div>
   <% else %>
     <div class="nav-bar-in">
-      <div>
-        <%= render 'shared/sidebar' %>
-      </div>
       <% if user_signed_in? %>
         <div >
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-item" %>
