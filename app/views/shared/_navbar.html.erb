@@ -4,11 +4,11 @@
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
   <% elsif current_user.user_type == 'doctor'%>
-    <%= link_to doctor_path(current_user.doctor) do %>
+    <%= link_to doctor_path(current_user) do %>
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
-  <% elsif current_user.user_type == 'doctor' %>
-    <%= link_to patient_path(current_user.patient) do %>
+  <% elsif current_user.user_type == 'patient' %>
+    <%= link_to patient_path(current_user) do %>
       <%= image_tag 'logo.png', height: "60px", class: 'logo' %>
     <% end %>
     <% else %>

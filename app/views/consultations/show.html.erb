@@ -89,6 +89,7 @@
   <div>
 
     <% if current_user.user_type == 'doctor' %>
+    <div class="containerw-50 mt-3 p-3 rounded" style="background-color: #efefef">
       <%= simple_form_for [@consultation, @prescription] do |f| %>
 
         <%= simple_fields_for @medicine do |o| %>
@@ -103,11 +104,11 @@
           <%= f.input :number_of_days %>
         </div>
           <%= f.input :comment %>
-          <%= f.button :submit, "Prescribe" %>
+          <%= f.button :submit, "Add to prescription", class: 'nav-item mb-2' %>
       <% end %>
-
-      <%= link_to "Complete Consultation", consultations_path, class: "nav-link"  %>
-
+      <%= link_to "Complete Consultation", consultations_path, class: "btn btn-info"  %>
     <% end %>
+
+    </div>
   </div>
 </div>
