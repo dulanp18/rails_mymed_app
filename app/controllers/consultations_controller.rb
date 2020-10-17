@@ -15,8 +15,8 @@ class ConsultationsController < ApplicationController
     authorize @consultation
 
     if params[:query].present?
-     @users = User.where(email: params[:query].downcase, user_type: 'patient')
-     # @age = Date.today.year - @users.date_of_birth.year
+     @user = User.find_by(email: params[:query].downcase, user_type: 'patient')
+     @age = Date.today.year - @user.date_of_birth.year
     end
   end
 
