@@ -20,7 +20,7 @@ class PatientsController < ApplicationController
     @patient.user = @user
     authorize @patient
     if @patient.save
-      redirect_to consultations_path
+      redirect_to patient_path(current_user.patient)
     else
        render :new
     end
