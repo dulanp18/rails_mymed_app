@@ -23,6 +23,8 @@ end
 
   resources :order_items
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   # Routes for Google authentication
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
   get 'auth/:provider/callback', to: 'sessions#create'
