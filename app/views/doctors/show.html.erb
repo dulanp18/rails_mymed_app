@@ -33,12 +33,6 @@
                 <th scope="row">Address of Clinic: <%= @doctor.address_of_clinic %></th> </tr>
         </tbody>
       </table>
-
-        <% if current_user.user_type == 'doctor' %>
-          <div>
-            <%= link_to "Start Consultation ", new_consultation_path, class:"btn consultation-button" %>
-          </div>
-        <% end %>
       </div>
     </div>
 
