@@ -68,7 +68,11 @@
   transition: all 1s ease;
   border-radius: 8px;
   color: #444 !important;
+    &:hover {
+      color: #03fc98;
+    }
 }
+
 
 .nav-tabs {
   color: #444 !important;
