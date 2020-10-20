@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home', as: 'home'
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :doctors
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
 end
 
   resources :order_items
+
 
   # Routes for Google authentication
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
