@@ -14,7 +14,11 @@
   border-radius: 4px;
   background-color: #03fc98;
   margin: .5em;
+  color: #444;
+
       &:hover {
       border: 2px solid #898989;
+      text-decoration: none;
+      color: #444;
     }
 }
