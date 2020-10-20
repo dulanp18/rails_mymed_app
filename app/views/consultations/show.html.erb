@@ -88,7 +88,8 @@
 
   <div>
 
-    <% if current_user.user_type == 'doctor' %>
+    <% if current_user.user_type == 'doctor' && @consultation.created_at > (DateTime.now.utc - 10.minutes)  %>
+    <%# <% raise %>
     <div class="containerw-50 mt-3 p-3 rounded" style="background-color: #efefef">
       <%= simple_form_for [@consultation, @prescription] do |f| %>
 
