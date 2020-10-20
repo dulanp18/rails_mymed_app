@@ -22,7 +22,7 @@
           <td><%= consultation.prescriptions.length %></td>
           <td>
             <div>
-                <%= link_to "View Consultation", consultation_path(consultation), class:"btn btn-primary" %>
+                <%= link_to "View Consultation", consultation_path(consultation), class:'consultation-button' %>
             </div>
           </td>
         </tr>
@@ -48,7 +48,7 @@
           <th scope="row"><%= consultation.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
           <td>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></td>
           <td><%= consultation.prescriptions.length %></td>
-          <td><%= link_to "View Consultation", consultation_path(consultation)   %> </td>
+          <td><%= link_to "View Consultation", consultation_path(consultation), class: 'consultation-button'%> </td>
         </tr>
         <% end %>
       </tbody>
