@@ -19,19 +19,13 @@
 
   <% if !user_signed_in? %>
     <div class="nav-bar-out">
-      <div>
-        <%= link_to "Login", new_user_session_path, class: "nav-link nav-item" %>
-      </div>
-      <div >
-        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link nav-item" %>
-      </div>
+        <%= link_to "Login", new_user_session_path, class: "login-btn" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-item" %>
     </div>
   <% else %>
     <div class="nav-bar-in">
       <% if user_signed_in? %>
-        <div >
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link logout-btn bg-transparent border border-success " %>
-        </div>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "login-btn" %>
         <% if current_user.user_type == 'doctor' %>
           <%= link_to "Create A Consultation", new_consultation_path, class:"btn consultation-button" %>
         <% end %>

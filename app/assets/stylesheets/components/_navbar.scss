@@ -3,6 +3,7 @@
   height: 75px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: rgb(255, 255, 255);
   transition: all 0.5s ease;
 }
@@ -10,17 +11,20 @@
 .nav-bar-out {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10px;
 }
 
 .nav-bar-in {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav-item {
+  display: flex;
+  align-items: center;
   color: #444;
-  margin: 20px 16px 0px 5px;
+  padding: 8px 16px;
+  margin: .5em;
   background-color: rgba(25, 230, 117, 0.8);
   border-radius: 4px;
   transition: all 1s ease;
@@ -28,15 +32,29 @@
 
 .nav-item:hover {
   background-color: rgba(25, 230, 117, 1);
+  text-decoration: none;
+}
+
+.login-btn {
+  margin: .5em;
+  padding: 8px 16px;
+  color: #444;
+  border: solid 2px #1BE676;
+  border-radius: 3px;
+      &:hover {
+        border: 2px solid #898989;
+        text-decoration: none;
+        color: #444;
+  }
 }
 
 .logout-btn {
-  margin: 20px 16px 0px 5px;
+  margin: .5em;
   color: #444;
   border: solid 2px;
   border-radius: 3px;
       &:hover {
-      border: 1px solid #898989 !important;
+      border: 2px solid #898989 !important;
   }
 }
 
@@ -45,14 +63,23 @@
   margin: 20px 16px 0px 5px;
   transition: all 1s ease;
   border-radius: 2px;
+  color: #00458e !important;
 }
 
-a {
-  color: #444;
+.nav-tabs {
+  color: #00458e !important;
 }
 
-a:hover {
-  color: #444;
+.consultation-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #FDB936;
+  margin: .5em;
+
+    &:hover {
+      border: 2px solid #898989;
+    }
+
 }
 
 .logo {
