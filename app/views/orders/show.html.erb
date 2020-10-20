@@ -5,10 +5,11 @@
       <ul class="list-unstyled">
         <li><strong>ISSUED ON</strong> <%= @order.created_at.strftime("%B %e, %Y, %I:%m%P") %></li>
         <li><strong>CONSULTATION</strong> <%= @order.consultation.id %> </li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.total_cost_cents %></li>
+        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.total_cost %></li>
         </li>
       </ul>
       <p>Estimated delivery in <strong>2 business days</strong></p>
     </div>
   </div>
+  <%= link_to 'Back to home', patient_path(current_user.patient), class: 'consultation-button' %>
 </div>
