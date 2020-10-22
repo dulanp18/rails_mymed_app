@@ -11,8 +11,19 @@
   border-bottom: 2px solid #F4F4F4 !important;
 }
 
-.thead.tr {
+.thead {
   border-radius: 10px;
+}
+
+th {
+border-radius: 10px;
+}
+
+.table thead th {
+    vertical-align: top;
+    border: none;
+    border-bottom: 2px solid #dee2e6;
+    padding: 16px;
 }
 
 .table-header {

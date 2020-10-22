@@ -106,8 +106,8 @@
     </div>
     <%= f.input :comment %>
     <%= f.button :submit, "Add to prescription", class: 'consultation-button' %>
+    <%= link_to "Complete Consultation", consultations_path, class: "btn complete-button"  %>
     <% end %>
-    <%= link_to "Complete Consultation", consultations_path, class: "btn btn-info"  %>
     <% end %>
 
   </div>
