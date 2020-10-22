@@ -5,3 +5,12 @@
 .table-data {
   display: inline;
 }
+
+.table {
+  border-radius: 10px;
+  border-bottom: 2px solid #F4F4F4 !important;
+}
+
+.thead.tr {
+  border-radius: 10px;
+}
