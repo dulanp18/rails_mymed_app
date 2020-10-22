@@ -16,7 +16,9 @@ class ConsultationsController < ApplicationController
 
     if params[:query].present?
      @user = User.find_by(email: params[:query].downcase, user_type: 'patient')
-     @age = Date.today.year - @user.date_of_birth.year
+     if @user
+      @age = Date.today.year - @user.date_of_birth.year
+     end
     end
   end
 
