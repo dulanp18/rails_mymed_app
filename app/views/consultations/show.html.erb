@@ -78,7 +78,7 @@
 
 
 <div>
-  <% if !@order.present? && current_user.user_type == 'patient'%>
+  <% if @order != "paid" && current_user.user_type == 'patient'%>
   <%= link_to 'Purchase prescriptions', consultation_cart_path(@consultation), class: 'btn btn-info' %>
   <% end %>
 
