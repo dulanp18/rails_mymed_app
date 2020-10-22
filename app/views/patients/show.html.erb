@@ -142,8 +142,10 @@
                       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Choose Your Start Date</h5>
+                            </div>
                             <div class="modal-body">
-                              <h5>Choose Your Start Date</h5>
 
                               <%= simple_form_for @task do |f| %>
                               <%= f.input :title, :as => :hidden, :input_html => { :value => "Remember To Take "+ prescription.medicine.name } %>
