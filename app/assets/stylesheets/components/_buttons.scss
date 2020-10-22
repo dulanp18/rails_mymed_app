@@ -10,14 +10,29 @@
 }
 
 .consultation-button {
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 4px;
   background-color: #03fc98;
   margin: .5em;
   color: #444;
+  border: none;
 
       &:hover {
       background-color: #09ea8c;
+      text-decoration: none;
+      color: #444;
+    }
+}
+
+.complete-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #FDB936;
+  margin: .5em;
+  color: #444;
+
+      &:hover {
+      background-color: #edab31;
       text-decoration: none;
       color: #444;
     }

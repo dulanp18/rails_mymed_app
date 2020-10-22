@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-50 mt-3 p-3 rounded" style="background-color: #efefef">
   <div class="inner-container">
     <h1>Search for Patient</h1>
 
@@ -31,8 +31,7 @@
         </tbody>
       </table>
       <div>
-        <%= link_to "Start Consultation For " + @user.first_name, consultations_path(:consultation => { :patient => @user.email }), method: :post, class:"btn btn-info" %>
-        <%#= link_to "View Patients Profile ", patient_path(user.patient), class:"nav-item nav-link" %>
+        <%= link_to "Start Consultation For " + @user.first_name, consultations_path(:consultation => { :patient => @user.email }), method: :post, class: "consultation-button" %>
       </div>
     <% end %>
   </div>
