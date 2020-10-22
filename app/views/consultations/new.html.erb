@@ -34,6 +34,8 @@
       <div>
         <%= link_to "Start Consultation For " + @user.first_name, consultations_path(:consultation => { :patient => @user.email }), method: :post, class: "consultation-button" %>
       </div>
+    <% else %>
+      <p>No user found</p>
     <% end %>
   </div>
 </div>
