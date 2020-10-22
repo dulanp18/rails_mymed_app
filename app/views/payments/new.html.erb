@@ -1,7 +1,7 @@
 <div class="container w-50 mt-3 p-3 rounded" style="background-color: #efefef">
   <div class="row py-4">
     <div class="col">
-      <h1>Checkout summary</h1>
+      <h1 class="text-center mb-3">Checkout summary</h1>
       <p>Purchase of <strong>Consultation #<%= @order.consultation.id %></strong> for <strong><%= humanized_money_with_symbol @order.total_cost %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
