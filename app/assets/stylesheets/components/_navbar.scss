@@ -27,12 +27,13 @@
   margin: .5em;
   background-color: rgba(25, 230, 117, 0.8);
   border-radius: 4px;
-  transition: all 1s ease;
+  transition: all .8s ease;
 }
 
 .nav-item:hover {
   background-color: rgba(25, 230, 117, 1);
   text-decoration: none;
+  color: #444;
 }
 
 .nav-link {
