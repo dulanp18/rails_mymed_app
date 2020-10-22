@@ -28,9 +28,15 @@ border-radius: 10px;
 
 .table-header {
   padding: 15px;
-  color: #04FC98;
+  -webkit-text-fill-color: #0bd347; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .cart-items {
   color: rgb(158, 15, 15)
+}
+
+#new_order .collection_check_boxes {
+  white-space: pre-wrap;
 }

@@ -5,9 +5,10 @@
   <p class="card-subtitle mb-2 text-muted">Tick the prescriptions you wish to pay for</p>
   <%= simple_form_for Order.new do |f| %>
     <%= f.input 'prescriptions', 
-                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}: Take #{prescription.amount_per_serving.to_i} #{prescription.medicine.medicine_type}, #{prescription.servings_per_day.to_i} Times per day, For #{prescription.number_of_days.to_i} days. -||- Doctors comment:#{prescription.comment} -||- Price: #{humanized_money_with_symbol prescription.price}", prescription.id]}, 
-                as: :check_boxes,
-                input_html: { class: 'special' }%> 
+                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}: Take #{prescription.amount_per_serving.to_i} #{prescription.medicine.medicine_type}, #{prescription.servings_per_day.to_i} Times per day, For #{prescription.number_of_days.to_i} days. 
+                Doctors comment: #{prescription.comment}. 
+                Price: #{humanized_money_with_symbol prescription.price}", prescription.id]}, 
+                as: :check_boxes%> 
     <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>
     <%= f.submit class: "consultation-button"%>
   <% end %>
