@@ -1,4 +1,51 @@
-.doctor-banner{
-  background-image: url('jeshoots-com-l0j0DHVWcIE-unsplash.jpg');
+
+
+.banner-doctor-image {
+  width: 100%;
+  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(0, 0, 0, 0)), url('jeshoots-com-l0j0DHVWcIE-unsplash.jpg');
+  height: 500px;
+  background-size: cover;
   background-position: center;
+  padding: 100px;
+  padding-top: 300px;
+}
+
+.banner-patient-image {
+  width: 100%;
+  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(0, 0, 0, 0)), url('brittany-colette--CDN2nTKfrA-unsplash.jpg');
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  padding-top: 300px;
+}
+
+.text-before-action {
+    text-align: center;
+    width: 250px;
+    margin: 0px auto;
+    padding: 20px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 10px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+
+
+.call-to-action {
+    text-align: center;
+    width: 150px;
+    margin: 0px auto;
+    padding: 20px;
+    color: black;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #F4F4F4;
 }
