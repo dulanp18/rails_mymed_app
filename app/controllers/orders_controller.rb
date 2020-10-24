@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
       price += Prescription.find(prescription_id).price_cents
     end
   order  = Order.create!(total_cost_cents: price, state: 'pending', user: current_user, consultation_id: params[:order][:consultation_id])
-  # raise
 
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],

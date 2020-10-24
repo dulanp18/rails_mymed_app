@@ -19,11 +19,11 @@ class PatientsController < ApplicationController
     @user = current_user
     @patient.user = @user
     authorize @patient
-    if @patient.save
-      redirect_to patient_path(current_user.patient)
-    else
-       render :new
-    end
+      if @patient.save
+        redirect_to patient_path(current_user.patient)
+      else
+         render :new
+      end
   end
 
   def show
