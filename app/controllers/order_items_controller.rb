@@ -2,9 +2,6 @@ class OrderItemsController < ApplicationController
   def index
    all_items = policy_scope(OrderItem)
    @user = current_user
-     if @user == 'patient'
-
-     end
   end
 
   def create

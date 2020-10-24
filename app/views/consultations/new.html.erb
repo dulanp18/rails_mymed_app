@@ -9,7 +9,6 @@
         <% end %>
       </div>
 
-
     <% if @user == "null" %>
     <h3 class="mt-3">No user found</h3>
 
@@ -35,9 +34,9 @@
         </tbody>
       </table>
       <div>
-        <%= link_to "Start Consultation For " + @user.first_name, consultations_path(:consultation => { :patient => @user.email }), method: :post, class: "consultation-button" %>
+        <%= link_to "Start Consultation For " + @user.first_name, consultations_path(:consultation => { :patient => @user.email }), method: :post, class: "btn consultation-button" %>
+        <%= link_to "View Patients Profile", patient_path(@user.patient), class: "btn btn-info" %>
       </div>
-
     <% end %>
   </div>
 </div>
