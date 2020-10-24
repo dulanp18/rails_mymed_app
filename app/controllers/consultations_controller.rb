@@ -14,11 +14,13 @@ class ConsultationsController < ApplicationController
     @consultation = Consultation.new()
     authorize @consultation
 
-    if params[:query].present?
+    if params[:query].present? && User.find_by(email: params[:query].downcase, user_type: 'patient')
      @user = User.find_by(email: params[:query].downcase, user_type: 'patient')
      if @user
       @age = Date.today.year - @user.date_of_birth.year
      end
+    elsif params[:query].present?
+       @user = "null"
     end
   end
 
