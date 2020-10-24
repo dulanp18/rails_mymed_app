@@ -30,16 +30,22 @@
 
         <div class="card border-dark mb-3">
           <div class="card-header">Medical Details</div>
-          <div class="card-body text-dark">
-            <p class="card-title">Allergies: </p>
-            <p class="card-text"> <%= @patient.allergies.titleize %></p>
+          <div class="card-body text-dark d-flex justify-content-between">
+            <div>
+              <p><strong>Allergies</strong></p>
+              <p class="card-text light-font"> <%= @patient.allergies.titleize %></p>
+            </div>
             <% if @consultations.length > 0 %>
-              <p>Last Consultation Date: </p>
-              <p class="card-text"> <%= @consultations.last.created_at.strftime("%B %e, %Y, %I:%m%P") %> </p>
-              <p>Medicine prescribed at last consultation:</p>
-              <% @consultations.last.prescriptions.each do |prescription|%>
-              <p class="card-text"> <%=prescription.medicine.name %> </p>
-              <% end %>
+              <div>
+                <p><strong>Last Consultation Date </strong></p>
+                <p class="card-text light-font"> <%= @consultations.last.created_at.strftime("%B %e, %Y, %I:%m%P") %> </p>
+              </div>
+              <div>
+                <p>Medicine prescribed at last consultation</p>
+                <% @consultations.last.prescriptions.each do |prescription|%>
+                <p class="card-text light-font"> <%=prescription.medicine.name %> </p>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -162,7 +168,7 @@
                       <div class="modal-content">
 
                         <div class="modal-header">
-                          <h5 class="modal-title">Choose Your Start Date</h5>
+                          <h5 style="color:black;" class="modal-title">Choose Your Start Date</h5>
                         </div>
 
                         <div class="modal-body">
