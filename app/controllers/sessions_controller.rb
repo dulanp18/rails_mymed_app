@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
     if @consultation_id
       redirect_to consultation_path(id: @consultation_id)
     else
-      redirect_to consultations_path
+      redirect_to patient_path(current_user.patient)
+      flash[:notice] = 'Your Calendar Is Now Linked. Start tracking your prescriptions.'
     end
   end
 
