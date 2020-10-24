@@ -1,49 +1,60 @@
-<div class="d-flex">
-  <div class="banner-doctor-image">
-    <div class="text-before-action">
-      How We Help
+
+<div>
+  <div class="d-flex">
+    <div class="banner-doctor-image">
+      <div class="text-before-action">
+        Patients
+      </div>
     </div>
-    <div class="call-to-action">
-      <%= link_to "Patients" %>
-    </div>
-  </div>
-  <div class="banner-patient-image">
-    <div class="text-before-action">
-      What We Offer
-    </div>
-    <div class="call-to-action">
-      <%= link_to "Doctors" %>
+    <div class="banner-patient-image">
+      <div class="text-before-action">
+        Doctors
+      </div>
     </div>
   </div>
+  <div class="center-text">
+      <div>Medication Can Get Overwhelming.</div>
+      <div>Leave Nothing Untracked.</div>
+      <div>We Help ....</div>
+  </div>
+</div>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div id='doctor-area' class="carousel-inner">
+    <div class="carousel-item active doctor-card">
+      <div class="d-flex justify-content-around">
+        <div class="text-center role-card">
+          <h1>If You Are A Doctor</h1>
+          <p>Obtain your patients medical information and prescription history at your fingertips. Send your patients home with digital prescriptions that they can not just buy but also use to remind them to take their meds.</p>
+        </div>
+        <div>
+          <%= link_to "Sign Up", new_user_registration_path, class: "consultation-button mt-5" %>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item doctor-card">
+      <div class="d-flex justify-content-around">
+        <div class="text-center role-card">
+          <h1>If You Are A Patient</h1>
+          <p>Save your consulation and prescription history for reference. Buy your prescriptions with ease and also never forget to take them.</p>
+        </div>
+        <div>
+          <%= link_to "Sign Up", new_user_registration_path, class: "consultation-button mt-5" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon arrow" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon arrow" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
 
 
 
-<div class="grid-container w-50 mt-3 p-3 rounded" style="background-color: #efefef">
-
-  <p>Subscription memberships are all the rage. We pay member fees for television programs,
-  meal delivery services, and, increasingly, for access to medical care.
-  Is subscription medicine the wave of the future?
-  </p>
-  <p>It is certainly a current, providing healthcare providers and patients viable alternative
-  models to the traditional fee-for-service practice. These models are promising, especially in
-  addressing specific pain points in the healthcare ecosystem.
-  </p>
-  <p>Consumerism in healthcare is rising, and subscription-based models of healthcare delivery
-  cater to demands that many patients have. For patients, subscription-based models offer
-  increased physician access and reliability, with many models offering consumer-friendly benefits
-  such as same-day appointments, shorter wait times, longer appointments, and increased after-hours access
-  to the physician.
-  </p>
-  <p>Many of the private practices that have turned to a subscription-based model are doing so
-  in order to remain independent. Subscription medicine can reduce many administrative headaches
-  and expenses, especially with models that do not accept health insurance. Providers may also
-  enjoy a reduced number of patients and the security that comes from a steady revenue stream
-  from annual fees.
-  </p>
-  <p>A subscription model paired with telemedicine could be a lifesaver for patients with
-  limited mobility or who live in very rural areas.
-  </p>
-</div>
 
