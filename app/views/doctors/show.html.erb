@@ -19,25 +19,20 @@
           <div class="card-header">Personal Details</div>
           <div class="card-body text-dark">
             <h2 class="card-title">Dr. <%= @doctor.user.first_name %> <%= @doctor.user.last_name %></h2>
-            <p class="card-text">Age: <%= @age %></p>
-            <p class="card-text">Nationality: <%= @doctor.user.nationality %></p>
+            <p class="card-text">Age:  <b><%= @age %></b></p>
+            <p class="card-text">Nationality:  <b><%= @doctor.user.nationality %></b></p>
           </div>
         </div>
 
         <div class="card border-dark mb-3">
           <div class="card-header">Medical Details</div>
           <div class="card-body text-dark">
-            <p class="card-title">Medical License Number </p>
-            <p class="card-text"> <%= @doctor.medical_licence_number %></p>
-            <p class="card-title">Residential Clinic:</p>
-            <p class="card-text"> <%= @doctor.clinic_of_practice%></p>
-            <p class="card-title">Clinic Address:</p>
-            <p class="card-text"> <%= @doctor.address_of_clinic %></p>
+            <p class="card-title">Medical License Number:  <b><%= @doctor.medical_licence_number %></b> </p>
+            <p class="card-title">Residential Clinic:  <b><%= @doctor.clinic_of_practice%></b></p>
+            <p class="card-title">Clinic Address:  <b><%= @doctor.address_of_clinic %></b></p>
             <% if @consultations.length >= 1 %>
-              <p class="card-title">Last Consultation Date:</p>
-              <p class="card-text"> <%= @consultations.last.created_at.strftime("%B %e, %Y, %I:%m%P") %> </p>
-              <p class="card-title">Patient from last consultation:</p>
-              <p class="card-text"> <%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %> </p>
+              <p class="card-title">Last Consultation Date:  <b><%= @consultations.last.created_at.strftime("%B %e, %Y, %I:%m%P") %></b></p>
+              <p class="card-title">Patient from last consultation:  <b><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></b></p>
             <% end %>
           </div>
         </div>
