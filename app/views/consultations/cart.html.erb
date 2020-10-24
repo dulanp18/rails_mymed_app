@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-body">
     <%= f.input 'prescriptions',
-                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}   |   Total number of tablets #{prescription.amount_per_serving.to_i * prescription.servings_per_day.to_i * prescription.number_of_days.to_i }   |   Price per tablet: #{ humanized_money_with_symbol prescription.medicine.price}
+                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}   |   Total number of tablets: #{prescription.amount_per_serving.to_i * prescription.servings_per_day.to_i * prescription.number_of_days.to_i }   |   Price per tablet: #{ humanized_money_with_symbol prescription.medicine.price}
 Total Price: #{humanized_money_with_symbol prescription.price}", prescription.id]},
                 as: :check_boxes, class: "checkbox"%>
     <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>

@@ -25,12 +25,20 @@ class PrescriptionsController < ApplicationController
     # raise
     @prescription.medicine = @medicine
     @prescription.consultation = @consultation
+    if @prescription.amount_per_serving
     price = @medicine.price_cents * (@prescription.amount_per_serving * @prescription.number_of_days * @prescription.servings_per_day)
+    end
     @prescription.price_cents = price
     authorize @prescription
-    @prescription.save
+    if @prescription.save
+      redirect_to consultation_path(@consultation)
+    else
+      redirect_to consultation_path(@consultation)
+      flash[:notice] = 'Please complete all field.'
+    end
 
-    redirect_to consultation_path(@consultation)
+
+
   end
 
   def show

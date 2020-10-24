@@ -98,13 +98,15 @@
       <% end %>
     </div>
     <div class="d-flex">
-      <%= f.input :amount_per_serving %>
-      <%= f.input :servings_per_day %>
-      <%= f.input :number_of_days %>
+      <%= f.input :amount_per_serving, required: true, error: 'Amount is required' %>
+      <%= f.input :servings_per_day, required: true, error: 'Servings is required' %>
+      <%= f.input :number_of_days, required: true, error: 'Number of days is required' %>
     </div>
     <%= f.input :comment %>
     <%= f.button :submit, "Add to prescription", class: 'consultation-button' %>
-    <%= link_to "Complete Consultation", consultations_path, class: "btn complete-button"  %>
+      <% if @consultation.prescriptions.length > 0 %>
+        <%= link_to "Complete Consultation", patient_path(@consultation.patient), class: "btn complete-button"  %>
+      <% end %>
     <% end %>
     <% end %>
 
