@@ -26,8 +26,8 @@ class TasksController < ApplicationController
         client = get_google_calendar_client current_user
         event = get_event task
         client.insert_event('primary', event)
-        flash[:notice] = 'Prescription was successfully added.'
         redirect_to consultation_path(@consultation)
+        flash[:notice] = 'Prescription was successfully added.'
      end
   end
 
