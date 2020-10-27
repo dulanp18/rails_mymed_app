@@ -21,7 +21,9 @@ def show
   @doctor = Doctor.find(params[:id])
   authorize @doctor
   @consultations = @doctor.consultations
+  @consultations = @consultations.order('created_at DESC')
   @prescriptions = @doctor.prescriptions
+  @prescriptions = @prescriptions.order('created_at DESC')
   @age = Date.today.year - @doctor.user.date_of_birth.year
 end
 
