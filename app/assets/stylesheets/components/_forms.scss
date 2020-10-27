@@ -1,3 +1,21 @@
-.form-inputs {
-    
+.form-check {
+  display: flex;
+  border: solid 1px #444;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 8px;
+
+  .form-check-label {
+    padding-left: 3em;
+  }
 }
+
+  .form-check-input {
+  margin-left: 1em;
+  -ms-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+  padding: 8px;
+  }

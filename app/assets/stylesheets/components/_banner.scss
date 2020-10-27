@@ -1,23 +1,27 @@
 
 
 .banner-doctor-image {
-  width: 100%;
-  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(0, 0, 0, 0)), url('jeshoots-com-l0j0DHVWcIE-unsplash.jpg');
+  width: 90%;
+  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(230, 228, 228, 0.5)), url('jeshoots-com-l0j0DHVWcIE-unsplash.jpg');
   height: 500px;
   background-size: cover;
   background-position: center;
-  padding: 100px;
   padding-top: 300px;
+  text-align: center;
+  padding-right: 200px;
+
 }
 
 .banner-patient-image {
   width: 100%;
-  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(0, 0, 0, 0)), url('brittany-colette--CDN2nTKfrA-unsplash.jpg');
+  background-image:linear-gradient(to top, rgba(147, 239, 186, 1), rgba(230, 228, 228, 0.5)), url('brittany-colette--CDN2nTKfrA-unsplash.jpg');
   height: 500px;
   background-size: cover;
   background-position: center;
   justify-content: center;
   padding-top: 300px;
+  text-align: center;
+  padding-right: 200px;
 }
 
 .text-before-action {
@@ -31,9 +35,22 @@
     border-radius: 10px;
     justify-content: center;
     font-weight: bold;
+    color: white;
+    text-shadow: 0px 1px 1px #4d4d4d;
+    font-size: 100px;
 }
 
-
+.center-text{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 30px;
+  text-align:center;
+  color: white;
+  text-shadow: 0px 1px 1px #4d4d4d
+}
 
 
 .call-to-action {
@@ -41,11 +58,40 @@
     width: 150px;
     margin: 0px auto;
     padding: 20px;
-    color: black;
+    color: white;
     text-transform: uppercase;
     border: 1px solid #fff;
     text-decoration: none;
     border-radius: 10px;
     justify-content: center;
-    background-color: #F4F4F4;
+    background-color: rgba(99, 93, 93, 1);
+
+    a {
+      color: white;
+    }
+}
+
+.doctor-card {
+  background:linear-gradient(to bottom, rgba(147, 239, 186, 1), rgba(230, 228, 228, 0.5));
+  background-color: white;
+  height: 500px;
+  padding-top: 250px;
+}
+
+.patient-card {
+  background:linear-gradient(to bottom, rgba(230, 228, 228, 0.5), rgba(230, 228, 228, 0.5));
+  background-color: white;
+  height: 500px;
+  padding-top: 250px;
+}
+
+.arrow {
+  background-color: rgba(99, 93, 93, 1);
+  height: 40px;
+  width: 20px;
+  border-radius: 10px;
+}
+
+.role-card {
+  max-width: 500px;
 }

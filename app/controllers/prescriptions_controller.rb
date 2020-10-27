@@ -14,23 +14,25 @@ class PrescriptionsController < ApplicationController
         @prescriptions << prescription
       end
     end
-
   end
 
   def create
     @prescription = Prescription.new(prescription_params)
-    # raise
     @consultation = Consultation.find(params[:consultation_id])
     @medicine = Medicine.find(params[:medicine])
-    # raise
     @prescription.medicine = @medicine
     @prescription.consultation = @consultation
-    price = @medicine.price_cents * (@prescription.amount_per_serving * @prescription.number_of_days * @prescription.servings_per_day)
+      if @prescription.amount_per_serving
+      price = @medicine.price_cents * (@prescription.amount_per_serving * @prescription.number_of_days * @prescription.servings_per_day)
+      end
     @prescription.price_cents = price
     authorize @prescription
-    @prescription.save
-
-    redirect_to consultation_path(@consultation)
+      if @prescription.save
+        redirect_to consultation_path(@consultation)
+      else
+        redirect_to consultation_path(@consultation)
+        flash[:notice] = 'Please complete all field.'
+      end
   end
 
   def show
@@ -40,14 +42,9 @@ class PrescriptionsController < ApplicationController
     authorize @prescription
   end
 
-
-
-
-  private
+private
 
   def prescription_params
       params.require(:prescription).permit(:amount_per_serving, :servings_per_day, :number_of_days, :comment, :price_cents)
   end
-
-
 end
