@@ -22,7 +22,8 @@
           <div class="card-header" style="display: flex; justify-content: space-between;">
             <h5>Patient Details</h5>
             <% if current_user.user_type == 'doctor' %>
-              <%= link_to 'Back to home', doctor_path(current_user.doctor), class: 'consultation-button' %>
+              <%= link_to 'Start a consultation', consultations_path(patient: @patient), :method => :post, class: 'btn consultation-button' %>
+              <%= link_to 'Back to home', doctor_path(current_user.doctor), class: "login-btn" %>
             <% end %>
           </div>
           <div class="card-body text-dark">

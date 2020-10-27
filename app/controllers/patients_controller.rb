@@ -32,6 +32,7 @@ class PatientsController < ApplicationController
     @consultations = @patient.consultations
     @consultations = @consultations.order('created_at DESC')
     @prescriptions = @patient.prescriptions
+    @consultation = Consultation.new
     @prescriptions = @prescriptions.order('created_at DESC')
     @task = Task.new
     @age = Date.today.year - @patient.user.date_of_birth.year
