@@ -3,7 +3,6 @@ require "google/api_client/client_secrets.rb"
 
 
 class TasksController < ApplicationController
-  #before_action :check_expiration, only: :create
   CALENDAR_ID = 'primary'
 
   def new

@@ -19,7 +19,12 @@
       <div class="generic-table">
 
         <div class="card border-dark mb-3">
-          <div class="card-header">Personal Details</div>
+          <div class="card-header" style="display: flex; justify-content: space-between;">
+            <h5>Patient Details</h5>
+            <% if current_user.user_type == 'doctor' %>
+              <%= link_to 'Back to home', doctor_path(current_user.doctor), class: 'consultation-button' %>
+            <% end %>
+          </div>
           <div class="card-body text-dark">
             <h2 class="card-title"><%= @patient.user.first_name %> <%= @patient.user.last_name %></h2>
             <p class="card-text">Age: <%= @age %></p>
@@ -29,7 +34,7 @@
         </div>
 
         <div class="card border-dark mb-3">
-          <div class="card-header">Medical Details</div>
+          <div class="card-header"><h5>Medical Details</h5></div>
           <div class="card-body text-dark d-flex justify-content-between">
             <div>
               <p><strong>Allergies</strong></p>
@@ -38,7 +43,7 @@
             <% if @consultations.length > 0 %>
               <div>
                 <p><strong>Last Consultation Date </strong></p>
-                <p class="card-text light-font"> <%= @consultations.last.created_at.strftime("%B %e, %Y, %I:%m%P") %> </p>
+                <p class="card-text light-font"> <%= @consultations.last.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %> </p>
               </div>
               <div>
                 <p>Medicine prescribed at last consultation</p>
@@ -93,7 +98,7 @@
         <tbody>
           <% @consultations.each do |consultation| %>
           <tr>
-            <th scope="row"><%= consultation.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
+            <th scope="row"><%= consultation.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></th>
             <td>Dr. <%= consultation.doctor.user.first_name + " " + consultation.doctor.user.last_name  %></td>
             <td><%= consultation.prescriptions.length %></td>
             <td><%= link_to "View Consultation", consultation_path(consultation), class:"btn consultation-button" %></td>
@@ -147,7 +152,7 @@
         <tbody>
           <% @prescriptions.each do |prescription| %>
           <tr>
-            <th class="text-nowrap" scope="row"><%= prescription.created_at.strftime("%B %e, %Y, %I:%m%P") %></th>
+            <th class="text-nowrap" scope="row"><%= prescription.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></th>
             <td><%= prescription.medicine.name  %></td>
             <td><%= prescription.medicine.strength_of_medicine  %></td>
             <td><%= prescription.medicine.medicine_type.titlecase %></td>

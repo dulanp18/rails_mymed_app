@@ -1,13 +1,12 @@
 <div class="container mt-3 p-3 rounded" style="background-color: #efefef">
   <h3 class="table-header" style="text-align: center; font-weight: bold;"><i class="fas fa-shopping-cart"> </i> Cart</h3>
   <p class="card-subtitle mb-2 text-muted">Tick the prescriptions you wish to pay for</p>
-  <%= simple_form_for Order.new do |f| %>
+    <%= simple_form_for Order.new do |f| %>
     <div class="card">
       <div class="card-body">
     <%= f.input 'prescriptions',
-                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}   |   Total number of tablets #{prescription.amount_per_serving.to_i * prescription.servings_per_day.to_i * prescription.number_of_days.to_i }   |   Price per tablet: #{ humanized_money_with_symbol prescription.medicine.price}
-Total Price: #{humanized_money_with_symbol prescription.price}", prescription.id]},
-                as: :check_boxes, class: "checkbox"%>
+                collection: @consultation.prescriptions.map { |prescription| ["#{prescription.medicine.name} - #{prescription.medicine.strength_of_medicine}   |   Total number of tablets: #{prescription.amount_per_serving.to_i * prescription.servings_per_day.to_i * prescription.number_of_days.to_i }   |   Price per tablet: #{ humanized_money_with_symbol prescription.medicine.price}
+Total Price: #{humanized_money_with_symbol prescription.price}", prescription.id]}, as: :check_boxes, class: "checkbox"%>
     <%= f.input 'consultation_id', input_html: { value: @consultation.id }, as: :hidden %>
        </div>
     </div>
