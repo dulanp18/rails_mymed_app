@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   def check_expiration(consultation)
       #return false unless current_user.expires_at
       token_expired_date = current_user.expires_at.nil? ? DateTime.now - 1 : DateTime.strptime(current_user.expires_at.to_s,'%s')
-      if current_user.access_token.nil? || DateTime.now > token_expired_date
+      if current_user.access_token.nil? || DateTime.now > token_expired_date || current_user.refresh_token.nil?
         current_user.access_token = nil
         current_user.save
         redirect_to(login_path, params:{consultation_id: consultation.id})
