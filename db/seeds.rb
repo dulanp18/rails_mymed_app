@@ -180,10 +180,71 @@ yucca.save!
 first_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
 first_consultation.save!
 
-
 first_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: panadol.id, consultation_id: first_consultation.id)
 first_prescription.price_cents = panadol.price_cents * (first_prescription.amount_per_serving * first_prescription.servings_per_day * first_prescription.number_of_days)
 first_prescription.save!
 
+second_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+second_consultation.save!
+
+second_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: imodium.id, consultation_id: second_consultation.id)
+second_prescription.price_cents = imodium.price_cents * (second_prescription.amount_per_serving * second_prescription.servings_per_day * second_prescription.number_of_days)
+second_prescription.save!
+
+third_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
+third_consultation.save!
+
+third_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: neurofen.id, consultation_id: third_consultation.id)
+third_prescription.price_cents = neurofen.price_cents * (third_prescription.amount_per_serving * third_prescription.servings_per_day * third_prescription.number_of_days)
+third_prescription.save!
+
+fourth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+fourth_consultation.save!
+
+fourth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: zyrtec_allergy.id, consultation_id: fourth_consultation.id)
+fourth_prescription.price_cents = zyrtec_allergy.price_cents * (fourth_prescription.amount_per_serving * fourth_prescription.servings_per_day * fourth_prescription.number_of_days)
+fourth_prescription.save!
+
+fifth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+fifth_consultation.save!
+
+fifth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: gaviscon.id, consultation_id: fifth_consultation.id)
+fifth_prescription.price_cents = gaviscon.price_cents * (fifth_prescription.amount_per_serving * fifth_prescription.servings_per_day * fifth_prescription.number_of_days)
+fifth_prescription.save!
+
+sixth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+sixth_consultation.save!
+
+sixth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: valerian.id, consultation_id: sixth_consultation.id)
+sixth_prescription.price_cents = valerian.price_cents * (sixth_prescription.amount_per_serving * sixth_prescription.servings_per_day * sixth_prescription.number_of_days)
+sixth_prescription.save!
+
+seventh_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
+seventh_consultation.save!
+
+seventh_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: angellica.id, consultation_id: seventh_consultation.id)
+seventh_prescription.price_cents = angellica.price_cents * (seventh_prescription.amount_per_serving * seventh_prescription.servings_per_day * seventh_prescription.number_of_days)
+seventh_prescription.save!
+
+eight_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+eight_consultation.save!
+
+eight_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: simaruba.id, consultation_id: eight_consultation.id)
+eight_prescription.price_cents = simaruba.price_cents * (eight_prescription.amount_per_serving * eight_prescription.servings_per_day * eight_prescription.number_of_days)
+eight_prescription.save!
+
+ninth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+ninth_consultation.save!
+
+ninth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: yucca.id, consultation_id: ninth_consultation.id)
+ninth_prescription.price_cents = yucca.price_cents * (ninth_prescription.amount_per_serving * ninth_prescription.servings_per_day * ninth_prescription.number_of_days)
+ninth_prescription.save!
+
+tenth_consultation = Consultation.new(doctor: third_doctor.doctor, patient: third_patient.patient)
+tenth_consultation.save!
+
+tenth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: verbena.id, consultation_id: tenth_consultation.id)
+tenth_prescription.price_cents = verbena.price_cents * (tenth_prescription.amount_per_serving * tenth_prescription.servings_per_day * tenth_prescription.number_of_days)
+tenth_prescription.save!
 
 puts "Seeded"
