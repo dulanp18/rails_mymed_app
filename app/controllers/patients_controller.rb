@@ -18,6 +18,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
     @user = current_user
     @patient.user = @user
+
     authorize @patient
       if @patient.save
         redirect_to patient_path(current_user.patient)
@@ -29,8 +30,10 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
     @consultations = @patient.consultations
+    @consultations = @consultations.order('created_at DESC')
     @prescriptions = @patient.prescriptions
     @consultation = Consultation.new
+    @prescriptions = @prescriptions.order('created_at DESC')
     @task = Task.new
     @age = Date.today.year - @patient.user.date_of_birth.year
   end
