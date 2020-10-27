@@ -30,6 +30,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
     @consultations = @patient.consultations
     @prescriptions = @patient.prescriptions
+    @consultation = Consultation.new
     @task = Task.new
     @age = Date.today.year - @patient.user.date_of_birth.year
   end

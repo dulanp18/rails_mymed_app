@@ -26,8 +26,13 @@ class ConsultationsController < ApplicationController
   def create
     @consultation = Consultation.new()
     @doctor = current_user.doctor
-    patient_user = User.where(email: params[:consultation][:patient])[0]
-    @patient = patient_user.patient
+    if params[:patient]
+      @patient = Patient.find(params[:patient])
+    else
+      patient_user = User.where(email: params[:consultation][:patient])[0]
+      @patient = patient_user.patient
+    end
+    # raise
     @consultation.doctor = @doctor
     @consultation.patient = @patient
     authorize @consultation
