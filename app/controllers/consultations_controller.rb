@@ -13,14 +13,10 @@ class ConsultationsController < ApplicationController
   def new
     @consultation = Consultation.new()
     authorize @consultation
-      if params[:query].present? && User.find_by(email: params[:query].downcase, user_type: 'patient')
-       @user = User.find_by(email: params[:query].downcase, user_type: 'patient')
-       if @user
-        @age = Date.today.year - @user.date_of_birth.year
-       end
-      elsif params[:query].present?
-         @user = "null"
-      end
+    sql_query = "email ILIKE :query OR last_name ILIKE :query"
+    if params[:query].present?
+      @user = User.where(sql_query, query: "%#{params[:query]}%")
+    end
   end
 
   def create
@@ -32,7 +28,6 @@ class ConsultationsController < ApplicationController
       patient_user = User.where(email: params[:consultation][:patient])[0]
       @patient = patient_user.patient
     end
-    # raise
     @consultation.doctor = @doctor
     @consultation.patient = @patient
     authorize @consultation
