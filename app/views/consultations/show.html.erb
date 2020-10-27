@@ -81,7 +81,7 @@
   <%= link_to 'Purchase prescriptions', consultation_cart_path(@consultation), class: 'btn btn-info' %>
   <% end %>
   <% if current_user.user_type == 'patient'%>
-  <%= link_to "Back To Patients Profile", patient_path(@consultation.patient), class: 'consultation-button' %>
+  <%= link_to "Back To Patients Profile", patient_path(@consultation.patient), class: 'btn consultation-button' %>
   <% end %>
 </div>
 
