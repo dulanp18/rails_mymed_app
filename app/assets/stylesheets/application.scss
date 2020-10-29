@@ -16,3 +16,19 @@
 a:hover{
   color: #03fc98;
 }
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.container{
+  padding-top: 50px;
+  display:flex;
+  flex-direction:column;
+  margin-top:auto;
+  margin-bottom:auto;
+}
