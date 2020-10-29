@@ -18,11 +18,11 @@ Medicine.delete_all
 
 puts "Cleared previous seeds"
 
-first_doctor = User.new(first_name: 'Naomi', last_name: 'Campbell', date_of_birth: DateTime.new(1980,9,1,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'nbarkolias@gmail.com', user_type: 'doctor')
+first_doctor = User.new(first_name: 'Nicholas', last_name: 'Barkolias', date_of_birth: DateTime.new(1980,9,1,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'nbarkolias@gmail.com', user_type: 'doctor')
 first_doctor.save!
 Doctor.create!(user: first_doctor, medical_licence_number: 00000, country_of_doctor_licence: 'Australia', clinic_of_practice: 'Melbourne', address_of_clinic: 'Collins street, Melbourne')
 
-first_patient = User.new(first_name: 'Sam', last_name: 'Claflin', date_of_birth: DateTime.new(1989,12,2,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake@gmail.com', user_type: 'patient')
+first_patient = User.new(first_name: 'Sofia', last_name: 'Sarhanis', date_of_birth: DateTime.new(1940,12,2,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'sofiasarhanis@gmail.com', user_type: 'patient')
 first_patient.save!
 Patient.create!(home_address: '17 milton road', allergies: 'none', user: first_patient)
 
@@ -78,7 +78,7 @@ eighth_doctor = User.new(first_name: 'Lucy', last_name: 'Liu', date_of_birth: Da
 eighth_doctor.save!
 Doctor.create!(user: eighth_doctor, medical_licence_number: 00000, country_of_doctor_licence: 'Australia', clinic_of_practice: 'Melbourne', address_of_clinic: 'Collins street, Melbourne')
 
-eighth_patient = User.new(first_name: 'Nick', last_name: 'Barkolias', date_of_birth: DateTime.new(1980,12,2,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake_patient_8@gmail.com', user_type: 'patient')
+eighth_patient = User.new(first_name: 'Sam', last_name: 'Claflin', date_of_birth: DateTime.new(1980,12,2,17), contact_number: '0411332270', password: 'password', nationality: 'Australian', email: 'fake_patient_8@gmail.com', user_type: 'patient')
 eighth_patient.save!
 Patient.create!(home_address: '17 milton road', allergies: 'none', user: eighth_patient)
 
@@ -128,52 +128,52 @@ neurofen.save!
 panamax = Medicine.new(name:"Panamax", strength_of_medicine:"500mg", available_status:"Available", price_cents: 249, number_of_servings: 20, medicine_type: "tablet")
 panamax.save!
 
-probiotic = Medicine.new(name:"Probiotic", strength_of_medicine:"32billion", available_status:"Available", price_cents: 2999, number_of_servings: 60, medicine_type: "tablet")
+probiotic = Medicine.new(name:"Probiotic", strength_of_medicine:"32billion", available_status:"Available", price_cents: 30, number_of_servings: 60, medicine_type: "tablet")
 probiotic.save!
 
-fish_oil = Medicine.new(name:"Fish Oil", strength_of_medicine:"1000mg", available_status:"Available", price_cents: 1299, number_of_servings: 400, medicine_type: "tablet")
+fish_oil = Medicine.new(name:"Fish Oil", strength_of_medicine:"1000mg", available_status:"Available", price_cents: 25, number_of_servings: 400, medicine_type: "tablet")
 fish_oil.save!
 
-zyrtec_allergy = Medicine.new(name:"Zyrtech Allergy and Hayfever", strength_of_medicine:"100mg", available_status:"Available", price_cents: 2999, number_of_servings: 70, medicine_type: "tablet")
+zyrtec_allergy = Medicine.new(name:"Zyrtech Allergy and Hayfever", strength_of_medicine:"100mg", available_status:"Available", price_cents: 40, number_of_servings: 70, medicine_type: "tablet")
 zyrtec_allergy.save!
 
 claratyne_allergy = Medicine.new(name:"Claratyne Hayfever and Allergy Relief Antihistamine", strength_of_medicine:"100mg", available_status:"Available", price_cents: 2999, number_of_servings: 75, medicine_type: "tablet")
 claratyne_allergy.save!
 
-gaviscon = Medicine.new(name:"Gaviscon Liquid Dual Action", strength_of_medicine:"600ml", available_status:"Available", price_cents: 1299, number_of_servings: 50, medicine_type: "syrup")
+gaviscon = Medicine.new(name:"Gaviscon Liquid Dual Action", strength_of_medicine:"600ml", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "syrup")
 gaviscon.save!
 
-nurofen_for_children = Medicine.new(name:"Nurofen for Children", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1599, number_of_servings: 50, medicine_type: "syrup")
+nurofen_for_children = Medicine.new(name:"Nurofen for Children", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 50, medicine_type: "syrup")
 nurofen_for_children.save!
 
-valerian = Medicine.new(name:"valerian for sleep disorders", strength_of_medicine:"400mg", available_status:"Available", price_cents: 1199, number_of_servings: 10, medicine_type: "tablet")
+valerian = Medicine.new(name:"valerian for sleep disorders", strength_of_medicine:"400mg", available_status:"Available", price_cents: 15, number_of_servings: 10, medicine_type: "tablet")
 valerian.save!
 
-angellica = Medicine.new(name:"angellica for heartburn", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1299, number_of_servings: 10, medicine_type: "tablet")
+angellica = Medicine.new(name:"angellica for heartburn", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 10, medicine_type: "tablet")
 angellica.save!
 
-atlantic_cedar = Medicine.new(name:"Atlantic Cedar for hair loss", strength_of_medicine:"500mg", available_status:"Available", price_cents: 2299, number_of_servings: 10, medicine_type: "tablet")
+atlantic_cedar = Medicine.new(name:"Atlantic Cedar for hair loss", strength_of_medicine:"500mg", available_status:"Available", price_cents: 80, number_of_servings: 10, medicine_type: "tablet")
 atlantic_cedar.save!
 
-bees_wax = Medicine.new(name:"Bees Wax for cholestrol control", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1299, number_of_servings: 50, medicine_type: "tablet")
+bees_wax = Medicine.new(name:"Bees Wax for cholestrol control", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "tablet")
 bees_wax.save!
 
-black_nightshade = Medicine.new(name:"Black Night Shade for pain", strength_of_medicine:"500mg", available_status:"Available", price_cents: 2299, number_of_servings: 50, medicine_type: "tablet")
+black_nightshade = Medicine.new(name:"Black Night Shade for pain", strength_of_medicine:"500mg", available_status:"Available", price_cents: 15, number_of_servings: 50, medicine_type: "tablet")
 black_nightshade.save!
 
-simaruba = Medicine.new(name:"Simaruba for water retention", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1599, number_of_servings: 50, medicine_type: "syrup")
+simaruba = Medicine.new(name:"Simaruba for water retention", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "syrup")
 simaruba.save!
 
-verbena = Medicine.new(name:"Verbena for sore throat", strength_of_medicine:"400mg", available_status:"Available", price_cents: 1199, number_of_servings: 10, medicine_type: "tablet")
+verbena = Medicine.new(name:"Verbena for sore throat", strength_of_medicine:"400mg", available_status:"Available", price_cents: 25, number_of_servings: 10, medicine_type: "tablet")
 verbena.save!
 
-xanthoparmelia = Medicine.new(name:"Xanthoparmelia for cancer", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1299, number_of_servings: 10, medicine_type: "tablet")
+xanthoparmelia = Medicine.new(name:"Xanthoparmelia for cancer", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 10, medicine_type: "tablet")
 xanthoparmelia.save!
 
-yellow_toadflax = Medicine.new(name:"Yellow toadflax for Digestion", strength_of_medicine:"500mg", available_status:"Available", price_cents: 2299, number_of_servings: 10, medicine_type: "tablet")
+yellow_toadflax = Medicine.new(name:"Yellow toadflax for Digestion", strength_of_medicine:"500mg", available_status:"Available", price_cents: 35, number_of_servings: 10, medicine_type: "tablet")
 yellow_toadflax.save!
 
-yucca = Medicine.new(name:"Yucca for high blood pressure", strength_of_medicine:"100mg", available_status:"Available", price_cents: 1299, number_of_servings: 50, medicine_type: "tablet")
+yucca = Medicine.new(name:"Yucca for high blood pressure", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 50, medicine_type: "tablet")
 yucca.save!
 
 
@@ -184,66 +184,61 @@ first_prescription = Prescription.new(amount_per_serving: "1", servings_per_day:
 first_prescription.price_cents = panadol.price_cents * (first_prescription.amount_per_serving * first_prescription.servings_per_day * first_prescription.number_of_days)
 first_prescription.save!
 
-second_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
-second_consultation.save!
 
-second_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: imodium.id, consultation_id: second_consultation.id)
+second_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take before bed", medicine_id: imodium.id, consultation_id: first_consultation.id)
 second_prescription.price_cents = imodium.price_cents * (second_prescription.amount_per_serving * second_prescription.servings_per_day * second_prescription.number_of_days)
 second_prescription.save!
 
 third_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
 third_consultation.save!
 
-third_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: neurofen.id, consultation_id: third_consultation.id)
+third_prescription = Prescription.new(amount_per_serving: "3", servings_per_day: 3, number_of_days: 4, comment: "take in the morning", medicine_id: neurofen.id, consultation_id: third_consultation.id)
 third_prescription.price_cents = neurofen.price_cents * (third_prescription.amount_per_serving * third_prescription.servings_per_day * third_prescription.number_of_days)
 third_prescription.save!
 
 fourth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
 fourth_consultation.save!
 
-fourth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: zyrtec_allergy.id, consultation_id: fourth_consultation.id)
+fourth_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take with food", medicine_id: zyrtec_allergy.id, consultation_id: fourth_consultation.id)
 fourth_prescription.price_cents = zyrtec_allergy.price_cents * (fourth_prescription.amount_per_serving * fourth_prescription.servings_per_day * fourth_prescription.number_of_days)
 fourth_prescription.save!
 
-fifth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
-fifth_consultation.save!
-
-fifth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: gaviscon.id, consultation_id: fifth_consultation.id)
+fifth_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take when stomach hurts", medicine_id: gaviscon.id, consultation_id: fourth_consultation.id)
 fifth_prescription.price_cents = gaviscon.price_cents * (fifth_prescription.amount_per_serving * fifth_prescription.servings_per_day * fifth_prescription.number_of_days)
 fifth_prescription.save!
 
 sixth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
 sixth_consultation.save!
 
-sixth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: valerian.id, consultation_id: sixth_consultation.id)
+sixth_prescription = Prescription.new(amount_per_serving: "3", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: valerian.id, consultation_id: sixth_consultation.id)
 sixth_prescription.price_cents = valerian.price_cents * (sixth_prescription.amount_per_serving * sixth_prescription.servings_per_day * sixth_prescription.number_of_days)
 sixth_prescription.save!
 
 seventh_consultation = Consultation.new(doctor: first_doctor.doctor, patient: first_patient.patient)
 seventh_consultation.save!
 
-seventh_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: angellica.id, consultation_id: seventh_consultation.id)
+seventh_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: angellica.id, consultation_id: seventh_consultation.id)
 seventh_prescription.price_cents = angellica.price_cents * (seventh_prescription.amount_per_serving * seventh_prescription.servings_per_day * seventh_prescription.number_of_days)
 seventh_prescription.save!
 
-eight_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+eight_consultation = Consultation.new(doctor: first_doctor.doctor, patient: second_patient.patient)
 eight_consultation.save!
 
-eight_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: simaruba.id, consultation_id: eight_consultation.id)
+eight_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: simaruba.id, consultation_id: eight_consultation.id)
 eight_prescription.price_cents = simaruba.price_cents * (eight_prescription.amount_per_serving * eight_prescription.servings_per_day * eight_prescription.number_of_days)
 eight_prescription.save!
 
-ninth_consultation = Consultation.new(doctor: second_doctor.doctor, patient: second_patient.patient)
+ninth_consultation = Consultation.new(doctor: first_doctor.doctor, patient: second_patient.patient)
 ninth_consultation.save!
 
 ninth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: yucca.id, consultation_id: ninth_consultation.id)
 ninth_prescription.price_cents = yucca.price_cents * (ninth_prescription.amount_per_serving * ninth_prescription.servings_per_day * ninth_prescription.number_of_days)
 ninth_prescription.save!
 
-tenth_consultation = Consultation.new(doctor: third_doctor.doctor, patient: third_patient.patient)
+tenth_consultation = Consultation.new(doctor: first_doctor.doctor, patient: third_patient.patient)
 tenth_consultation.save!
 
-tenth_prescription = Prescription.new(amount_per_serving: "1", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: verbena.id, consultation_id: tenth_consultation.id)
+tenth_prescription = Prescription.new(amount_per_serving: "2", servings_per_day: 3, number_of_days: 4, comment: "take after meals", medicine_id: verbena.id, consultation_id: tenth_consultation.id)
 tenth_prescription.price_cents = verbena.price_cents * (tenth_prescription.amount_per_serving * tenth_prescription.servings_per_day * tenth_prescription.number_of_days)
 tenth_prescription.save!
 
