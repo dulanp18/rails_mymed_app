@@ -1,15 +1,28 @@
-<div class="container w-50 mt-3 p-3 rounded " style="background-color: #efefef">
+<div class="container w-50 mt-3 p-3 rounded-card" style="background-color: #efefef">
   <div class="row py-4">
     <div class="col">
-      <h1 class="text-center mb-3">Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON:</strong> <%= @order.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></li>
-        <li><strong>CONSULTATION NUMBER:</strong> <%= @order.consultation.id %> </li>
-        <li><strong>TOTAL:</strong> <%= humanized_money_with_symbol @order.total_cost %></li>
-        </li>
-      </ul>
+      <h1 class="text-center mb-3">Order #<%= @order.id %></h1>
+      <table class="table table-striped table-dark table-hover mt-2">
+        <thead>
+          <tr>
+            <th scope="col">Issued on</th>
+            <th>Consultation Number</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>  <th scope="row"><%= @order.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></th>
+            <th scope="row"><%= @order.consultation.id %></th>
+            <th scope="row"><%= humanized_money_with_symbol @order.total_cost %></th>
+            <th><span class="badge badge-primary p-2"><%= @order.state %></span></th>
+          </tr>
+        </tbody>
+      </table>
       <p>Estimated delivery in <strong>2 business days</strong></p>
     </div>
   </div>
   <%= link_to 'Back to home', patient_path(current_user.patient), class: 'consultation-button' %>
 </div>
+
+
