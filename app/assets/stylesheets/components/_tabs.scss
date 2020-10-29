@@ -1,13 +1,13 @@
 .generic-tab {
   padding: 10px;
   background-color: #F4F4F4;
-  border-radius: 5px;
   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   min-height: 300px;
   min-width: 1200px;
+  border-top-left-radius: 0;
 }
 
 
-.nav-link.active {
-  border-radius: 8px;
-}
+// .nav-link.active {
+//   border-radius: 8px;
+// }
