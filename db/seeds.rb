@@ -134,10 +134,10 @@ probiotic.save!
 fish_oil = Medicine.new(name:"Fish Oil", strength_of_medicine:"1000mg", available_status:"Available", price_cents: 25, number_of_servings: 400, medicine_type: "tablet")
 fish_oil.save!
 
-zyrtec_allergy = Medicine.new(name:"Zyrtech Allergy and Hayfever", strength_of_medicine:"100mg", available_status:"Available", price_cents: 40, number_of_servings: 70, medicine_type: "tablet")
+zyrtec_allergy = Medicine.new(name:"Zyrtech", strength_of_medicine:"100mg", available_status:"Available", price_cents: 40, number_of_servings: 70, medicine_type: "tablet")
 zyrtec_allergy.save!
 
-claratyne_allergy = Medicine.new(name:"Claratyne Hayfever and Allergy Relief Antihistamine", strength_of_medicine:"100mg", available_status:"Available", price_cents: 2999, number_of_servings: 75, medicine_type: "tablet")
+claratyne_allergy = Medicine.new(name:"Claratyne", strength_of_medicine:"100mg", available_status:"Available", price_cents: 2999, number_of_servings: 75, medicine_type: "tablet")
 claratyne_allergy.save!
 
 gaviscon = Medicine.new(name:"Gaviscon Liquid Dual Action", strength_of_medicine:"600ml", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "syrup")
@@ -146,34 +146,34 @@ gaviscon.save!
 nurofen_for_children = Medicine.new(name:"Nurofen for Children", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 50, medicine_type: "syrup")
 nurofen_for_children.save!
 
-valerian = Medicine.new(name:"valerian for sleep disorders", strength_of_medicine:"400mg", available_status:"Available", price_cents: 15, number_of_servings: 10, medicine_type: "tablet")
+valerian = Medicine.new(name:"Valerian", strength_of_medicine:"400mg", available_status:"Available", price_cents: 15, number_of_servings: 10, medicine_type: "tablet")
 valerian.save!
 
-angellica = Medicine.new(name:"angellica for heartburn", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 10, medicine_type: "tablet")
+angellica = Medicine.new(name:"Amoxicillin", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 10, medicine_type: "tablet")
 angellica.save!
 
-atlantic_cedar = Medicine.new(name:"Atlantic Cedar for hair loss", strength_of_medicine:"500mg", available_status:"Available", price_cents: 80, number_of_servings: 10, medicine_type: "tablet")
+atlantic_cedar = Medicine.new(name:"Atlantic Cedar", strength_of_medicine:"500mg", available_status:"Available", price_cents: 80, number_of_servings: 10, medicine_type: "tablet")
 atlantic_cedar.save!
 
-bees_wax = Medicine.new(name:"Bees Wax for cholestrol control", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "tablet")
+bees_wax = Medicine.new(name:"Pantoprazole", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "tablet")
 bees_wax.save!
 
-black_nightshade = Medicine.new(name:"Black Night Shade for pain", strength_of_medicine:"500mg", available_status:"Available", price_cents: 15, number_of_servings: 50, medicine_type: "tablet")
+black_nightshade = Medicine.new(name:"Black Night Shade", strength_of_medicine:"500mg", available_status:"Available", price_cents: 15, number_of_servings: 50, medicine_type: "tablet")
 black_nightshade.save!
 
-simaruba = Medicine.new(name:"Simaruba for water retention", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "syrup")
+simaruba = Medicine.new(name:"Rosuvastatin", strength_of_medicine:"100mg", available_status:"Available", price_cents: 20, number_of_servings: 50, medicine_type: "syrup")
 simaruba.save!
 
-verbena = Medicine.new(name:"Verbena for sore throat", strength_of_medicine:"400mg", available_status:"Available", price_cents: 25, number_of_servings: 10, medicine_type: "tablet")
+verbena = Medicine.new(name:"Esomeprazole", strength_of_medicine:"400mg", available_status:"Available", price_cents: 25, number_of_servings: 10, medicine_type: "tablet")
 verbena.save!
 
-xanthoparmelia = Medicine.new(name:"Xanthoparmelia for cancer", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 10, medicine_type: "tablet")
+xanthoparmelia = Medicine.new(name:"Xanthoparmelia", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 10, medicine_type: "tablet")
 xanthoparmelia.save!
 
-yellow_toadflax = Medicine.new(name:"Yellow toadflax for Digestion", strength_of_medicine:"500mg", available_status:"Available", price_cents: 35, number_of_servings: 10, medicine_type: "tablet")
+yellow_toadflax = Medicine.new(name:"Yellow toadflax", strength_of_medicine:"500mg", available_status:"Available", price_cents: 35, number_of_servings: 10, medicine_type: "tablet")
 yellow_toadflax.save!
 
-yucca = Medicine.new(name:"Yucca for high blood pressure", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 50, medicine_type: "tablet")
+yucca = Medicine.new(name:"Atorvastatin", strength_of_medicine:"100mg", available_status:"Available", price_cents: 30, number_of_servings: 50, medicine_type: "tablet")
 yucca.save!
 
 
