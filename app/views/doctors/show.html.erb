@@ -45,14 +45,14 @@
 
       <% if @consultations.length >= 1 %>
         <div class="d-flex justify-content-around m-4">
-          <div class="card" style="width: 18rem;">
+          <div class="small-card card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Total Number Of Consultations Done</h5>
               <p class="card-text"> <%= @consultations.length %> </p>
             </div>
           </div>
 
-          <div class="card" style="width: 18rem;">
+          <div class="small-card card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Most Recently Consulted Patient</h5>
               <p class="card-text"><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></p>
@@ -82,7 +82,7 @@
         </table>
         </div>
       <% else %>
-        <div class="card" style="width: 18rem;">
+        <div class="small-card card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">No Consultations Have Been Carried Out Yet. Get Started!</h5>
             </div>
@@ -104,14 +104,14 @@
         <% else %>
 
           <div class="d-flex justify-content-around m-4">
-            <div class="card" style="width: 18rem;">
+            <div class="small-card card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Total Number Of Prescriptions Done</h5>
                 <p class="card-text"> <%= @prescriptions.length %> </p>
               </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
+            <div class="small-card card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Most Recently Prescriped Medicine</h5>
                 <p class="card-text">You project <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
