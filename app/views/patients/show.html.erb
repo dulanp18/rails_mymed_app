@@ -44,16 +44,16 @@
             <% if @consultations.length > 0 %>
               <div>
                 <p><strong>Last Consultation Date </strong></p>
-                <p class="card-text light-font"> <%= @consultations.last.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %> </p>
+                <p class="card-text light-font"> <%= @consultations.first.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %> </p>
               </div>
               <div>
                 <p>Medicine prescribed at last consultation</p>
-                <% @consultations.last.prescriptions.each do |prescription|%>
+                <% @consultations.first.prescriptions.each do |prescription|%>
                 <p class="card-text light-font"> <%= prescription.medicine.name%></p>
                 <% end %>
               </div>
               <div class="mt-3">
-                <%= link_to "View last consultation", consultation_path(@consultations.last), class: 'consultation-button' %>
+                <%= link_to "View last consultation", consultation_path(@consultations.first), class: 'consultation-button' %>
               </div>
             <% end %>
           </div>
