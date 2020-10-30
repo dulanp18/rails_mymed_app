@@ -14,7 +14,7 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="general-tab">
       <div class="generic-table" >
 
-        <div class="card border-dark mb-3">
+        <div class="card mb-3">
           <div class="card-header" style="display: flex; justify-content: space-between;">
             <h5>Doctor Details</h5>
             <%= link_to "Search for patient", new_consultation_path, class:"btn consultation-button" %>
@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="card border-dark mb-3">
+        <div class="card mb-3">
           <div class="card-header"><h5>Medical Details</h5></div>
           <div class="card-body text-dark">
             <p class="card-title">Medical License Number:  <b><%= @doctor.medical_licence_number %></b> </p>
