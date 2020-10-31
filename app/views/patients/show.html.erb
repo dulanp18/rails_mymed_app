@@ -75,16 +75,16 @@
         </div>
       <% else %>
         <div class="d-flex justify-content-around m-4">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem; border-radius: 5px;">
             <div class="card-body">
-              <h5 class="card-title">Total Number Of Consultations</h5>
-              <p class="card-text"> <%= @consultations.length %> </p>
+              <p class="card-text" style="font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 0;"> <%= @consultations.length %> </p>
+              <h5 class="card-title" style="font-size:17px; text-align: center;">Consultations</h5>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Most Recently Visited Doctor</h5>
-              <p class="card-text"> Dr. <%= @consultations.last.doctor.user.first_name %> <%= @consultations.last.doctor.user.last_name %></p>
+          <div class="card" style="width: 18rem; border-radius: 5px;">
+            <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+              <h5 class="card-title" style="font-size: 18px;">Currently seeing</h5>
+              <p class="card-text" style="font-size: 24px;"> Dr. <%= @consultations.last.doctor.user.first_name %> <%= @consultations.last.doctor.user.last_name %></p>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
 
       <% if @consultations.length == 0 %>
         <div class="d-flex justify-content-around m-4">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem; border-radius: 5px;">
             <div class="card-body">
               <h5 class="card-title">You Have No Prescriptions Yet.</h5>
             </div>
@@ -127,16 +127,16 @@
         </div>
       <% else %>
         <div class="d-flex justify-content-around m-4">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="width: 18rem; border-radius: 5px;">
             <div class="card-body">
-              <h5 class="card-title">Total Number Of Prescriptions Taken</h5>
-              <p class="card-text"> <%= @prescriptions.length %> </p>
+              <p class="card-text" style="font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 0;"> <%= @prescriptions.length %> </p>
+              <h5 class="card-title" style="font-size:17px; text-align: center;">Total Number Of Prescriptions Taken</h5>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Most Recently Taken Prescription</h5>
-              <p class="card-text"> You took <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
+          <div class="card" style="width: 18rem; border-radius: 5px;">
+            <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+              <h5 class="card-title" style="font-size: 18px;">Most Recently Taken Prescription</h5>
+              <p class="card-text" style="font-size: 24px;"> You took <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
             </div>
           </div>
         </div>
