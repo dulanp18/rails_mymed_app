@@ -20,9 +20,8 @@
             <%= link_to "Search for patient", new_consultation_path, class:"btn consultation-button" %>
           </div>
           <div class="card-body text-dark">
-            <h2 class="card-title">Dr. <%= @doctor.user.first_name %> <%= @doctor.user.last_name %></h2>
-            <p class="card-text">Age:  <b><%= @age %></b></p>
-            <p class="card-text">Nationality:  <b><%= @doctor.user.nationality %></b></p>
+            <h2 class="card-title" style="font-weight: bold; font-size: 50px">Dr. <%= @doctor.user.first_name %> <%= @doctor.user.last_name %></h2>
+            <p class="card-text" style="font-size: 21px"><%= @age %> years old, <%= @doctor.user.nationality %></p>
           </div>
         </div>
 
@@ -45,17 +44,17 @@
 
       <% if @consultations.length >= 1 %>
         <div class="d-flex justify-content-around m-4">
-          <div class="small-card card" style="width: 18rem;">
+          <div class="small-card card" style="width: 18rem; border-radius: 5px;">
             <div class="card-body">
-              <h5 class="card-title">Total Number Of Consultations Done</h5>
-              <p class="card-text"> <%= @consultations.length %> </p>
+              <p class="card-text" style="font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 0;"> <%= @consultations.length %> </p>
+              <h5 class="card-title" style="font-size:17px; text-align: center;">Total Number Of Consultations Done</h5>
             </div>
           </div>
 
-          <div class="small-card card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Most Recently Consulted Patient</h5>
-              <p class="card-text"><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></p>
+          <div class="small-card card" style="width: 18rem; border-radius: 5px;">
+            <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+              <h5 class="card-title" style="font-size: 18px;">Most Recently Consulted Patient</h5>
+              <p class="card-text" style="font-size: 24px;"><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></p>
             </div>
           </div>
         </div>
@@ -82,7 +81,7 @@
         </table>
         </div>
       <% else %>
-        <div class="small-card card" style="width: 18rem;">
+        <div class="small-card card" style="width: 18rem; border-radius: 5px;">
             <div class="card-body">
               <h5 class="card-title">No Consultations Have Been Carried Out Yet. Get Started!</h5>
             </div>
@@ -104,17 +103,17 @@
         <% else %>
 
           <div class="d-flex justify-content-around m-4">
-            <div class="small-card card" style="width: 18rem;">
+            <div class="small-card card" style="width: 18rem; border-radius: 5px;">
               <div class="card-body">
-                <h5 class="card-title">Total Number Of Prescriptions Done</h5>
-                <p class="card-text"> <%= @prescriptions.length %> </p>
+                <p class="card-text" style="font-size: 40px; font-weight: bold; text-align: center; margin-bottom: 0;"> <%= @prescriptions.length %> </p>
+                <h5 class="card-title" style="font-size:24px; text-align: center;">Total Number Of Prescriptions Done</h5>
               </div>
             </div>
 
-            <div class="small-card card" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">Most Recently Prescriped Medicine</h5>
-                <p class="card-text">You project <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
+            <div class="small-card card" style="width: 18rem; border-radius: 5px;">
+              <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                <h5 class="card-title" style="font-size: 18px;">Most Recently Prescriped Medicine</h5>
+                <p class="card-text" style="font-size: 24px;">You project <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
               </div>
             </div>
           </div>
