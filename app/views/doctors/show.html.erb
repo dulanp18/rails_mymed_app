@@ -33,8 +33,8 @@
             <p class="card-title">Residential Clinic:  <b><%= @doctor.clinic_of_practice%></b></p>
             <p class="card-title">Clinic Address:  <b><%= @doctor.address_of_clinic %></b></p>
             <% if @consultations.length >= 1 %>
-              <p class="card-title">Last Consultation Date:  <b><%= @consultations.last.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></b></p>
-              <p class="card-title">Patient from last consultation:  <b><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></b></p>
+              <p class="card-title">Last Consultation Date:  <b><%= @consultations.first.created_at.getlocal.strftime("%B %e, %Y, %I:%m%P") %></b></p>
+              <p class="card-title">Patient from last consultation:  <b><%= @consultations.first.patient.user.first_name %> <%= @consultations.first.patient.user.last_name %></b></p>
             <% end %>
           </div>
         </div>
@@ -55,7 +55,7 @@
           <div class="small-card card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Most Recently Consulted Patient</h5>
-              <p class="card-text"><%= @consultations.last.patient.user.first_name %> <%= @consultations.last.patient.user.last_name %></p>
+              <p class="card-text"><%= @consultations.first.patient.user.first_name %> <%= @consultations.first.patient.user.last_name %></p>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@
             <div class="small-card card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">Most Recently Prescriped Medicine</h5>
-                <p class="card-text">You project <%= @prescriptions.last.medicine.name %>, <%= @prescriptions.last.servings_per_day.to_i %> times a day for <%= @prescriptions.last.number_of_days.to_i %> days </p>
+                <p class="card-text">You prescribed <%= @prescriptions.first.medicine.name %>, <%= @prescriptions.first.servings_per_day.to_i %> times a day for <%= @prescriptions.first.number_of_days.to_i %> days </p>
               </div>
             </div>
           </div>
